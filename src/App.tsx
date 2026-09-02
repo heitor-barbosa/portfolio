@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowDown,
   ArrowDownRight,
   ArrowRight,
   ArrowUp,
@@ -68,15 +67,9 @@ function readPreference(key: string, fallback: string) {
   }
 }
 
-function HeroVisual({ t }: { t: Copy }) {
+function HeroVisual() {
   return (
     <div className="hero-visual" aria-hidden="true">
-      <div className="visual-top">
-        <span>
-          <span className="status-dot" /> {t.visualTop}
-        </span>
-        <Plus size={16} />
-      </div>
       <div className="orbital-scene">
         <svg className="orbits" viewBox="0 0 460 400" fill="none">
           <defs>
@@ -156,16 +149,6 @@ function HeroVisual({ t }: { t: Copy }) {
         </div>
         <span className="coordinate coord-one">23.5°</span>
         <span className="coordinate coord-two">{"{ ideas: ∞ }"}</span>
-      </div>
-      <div className="visual-bottom">
-        <span>{t.visualBottom}</span>
-        <div className="signal">
-          <i />
-          <i />
-          <i />
-          <i />
-          <i />
-        </div>
       </div>
     </div>
   );
@@ -767,14 +750,7 @@ export default function App() {
               </div>
             </div>
           </div>
-          <HeroVisual t={t} />
-          <div className="hero-bottom">
-            <span>PYTHON / TYPESCRIPT / REACT / AI</span>
-            <a href="#sobre">
-              {t.scroll}
-              <ArrowDown size={14} />
-            </a>
-          </div>
+          <HeroVisual />
         </section>
         <GitHubActivity t={t} lang={lang} />
         <div className="container">

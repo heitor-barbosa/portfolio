@@ -376,60 +376,6 @@ h1 > span {
     transparent 68%
   );
 }
-.visual-top,
-.visual-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font: 8px var(--font-mono);
-  letter-spacing: 1.4px;
-  color: var(--subtle);
-  position: absolute;
-  left: 24px;
-  right: 13px;
-}
-.visual-top {
-  top: 10px;
-}
-.visual-top > span {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-.visual-top .status-dot {
-  width: 4px;
-  height: 4px;
-}
-.visual-bottom {
-  bottom: 5px;
-}
-.signal {
-  height: 10px;
-  display: flex;
-  gap: 3px;
-  align-items: end;
-}
-.signal i {
-  display: block;
-  width: 3px;
-  background: var(--subtle);
-}
-.signal i:nth-child(1) {
-  height: 3px;
-}
-.signal i:nth-child(2) {
-  height: 5px;
-}
-.signal i:nth-child(3) {
-  height: 8px;
-}
-.signal i:nth-child(4) {
-  height: 6px;
-}
-.signal i:nth-child(5) {
-  height: 10px;
-  background: var(--accent);
-}
 .orbital-scene {
   position: relative;
   width: 100%;
@@ -529,24 +475,6 @@ h1 > span {
 .coord-two {
   right: 0;
   top: 224px;
-}
-.hero-bottom {
-  grid-column: 1/-1;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 43px;
-  color: var(--subtle);
-  font: 8px var(--font-mono);
-  letter-spacing: 1.3px;
-}
-.hero-bottom a {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  letter-spacing: 0.3px;
-}
-.hero-bottom a:hover {
-  color: var(--accent);
 }
 .section {
   padding: 96px 0;
@@ -1757,9 +1685,6 @@ h2 {
   .hero-visual {
     height: 465px;
   }
-  .hero-bottom {
-    margin-top: 65px;
-  }
 }
 @media (max-width: 1150px) {
   .container {
@@ -1938,11 +1863,6 @@ h2 {
   .tag-ai {
     bottom: 46px;
   }
-  .visual-top,
-  .visual-bottom {
-    font-size: 6px;
-    left: 15px;
-  }
   .coordinate {
     display: none;
   }
@@ -1955,9 +1875,6 @@ h2 {
   }
   .core-slash {
     font-size: 39px;
-  }
-  .hero-bottom {
-    margin-top: 40px;
   }
   .section {
     padding-block: 75px;
@@ -2217,12 +2134,6 @@ h2 {
     height: 335px;
     width: min(100%, 390px);
   }
-  .visual-top {
-    top: 6px;
-  }
-  .visual-bottom {
-    bottom: 0;
-  }
   .orbit-tag {
     font-size: 9px;
     padding: 11px;
@@ -2248,20 +2159,6 @@ h2 {
   }
   .core-slash {
     font-size: 46px;
-  }
-  .visual-top,
-  .visual-bottom {
-    font-size: 7px;
-    left: 10px;
-    right: 10px;
-  }
-  .hero-bottom {
-    margin-top: 25px;
-    font-size: 6px;
-    letter-spacing: 0.7px;
-  }
-  .hero-bottom a {
-    gap: 8px;
   }
   .section {
     padding-block: 61px;
