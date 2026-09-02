@@ -102,7 +102,7 @@ main:focus {
   margin-inline: auto;
 }
 .eyebrow {
-  font: 10px var(--font-mono);
+  font: 14px var(--font-mono);
   letter-spacing: 1.7px;
   color: var(--muted);
   display: inline-flex;
@@ -151,7 +151,7 @@ main:focus {
   top: 10px;
 }
 .header {
-  height: 88px;
+  height: 96px;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -169,7 +169,7 @@ main:focus {
   gap: 24px;
 }
 .wordmark {
-  font-size: 29px;
+  font-size: 34px;
   letter-spacing: -1.8px;
   font-weight: 800;
 }
@@ -184,7 +184,7 @@ main:focus {
   height: 100%;
 }
 .nav a {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--muted);
   height: 100%;
   display: flex;
@@ -215,7 +215,7 @@ main:focus {
   display: flex;
   align-items: center;
   gap: 8px;
-  font: 10px var(--font-mono);
+  font: 14px var(--font-mono);
 }
 .language-switch button {
   color: var(--muted);
@@ -240,7 +240,7 @@ main:focus {
   border: 1px solid var(--border);
   padding: 10px 15px;
   border-radius: 5px;
-  font-size: 11px;
+  font-size: 15px;
   margin-left: 4px;
   transition: border-color 0.2s;
 }
@@ -259,11 +259,11 @@ main:focus {
   padding-bottom: 34px;
 }
 .hero-eyebrow {
-  font-size: 9px;
+  font-size: 13px;
   letter-spacing: 1.4px;
 }
 .hello {
-  font-size: 14px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   gap: 13px;
@@ -287,7 +287,7 @@ h1 > span {
   color: var(--accent);
 }
 .hero-description {
-  font-size: 13px;
+  font-size: 17px;
   line-height: 1.9;
   color: var(--muted);
   max-width: 390px;
@@ -305,7 +305,7 @@ h1 > span {
   justify-content: center;
   gap: 22px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   padding: 15px 19px;
   min-height: 46px;
@@ -335,7 +335,7 @@ h1 > span {
   display: flex;
   align-items: center;
   gap: 11px;
-  font-size: 11px;
+  font-size: 15px;
   color: var(--muted);
 }
 .resume-link:hover {
@@ -346,7 +346,7 @@ h1 > span {
   align-items: center;
   gap: 13px;
   margin-top: 34px;
-  font: 9px var(--font-mono);
+  font: 13px var(--font-mono);
   color: var(--muted);
 }
 .hero-meta > span:first-child {
@@ -565,13 +565,13 @@ h2 {
   gap: 110px;
 }
 .about-lead {
-  font-size: 17px;
+  font-size: 21px;
   line-height: 1.65;
   max-width: 395px;
   margin-top: 25px;
 }
 .body-copy {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.95;
   margin-top: 15px;
@@ -593,12 +593,12 @@ h2 {
 }
 .education strong {
   display: block;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   margin-bottom: 6px;
 }
 .education div > span {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
 }
 .education-date {
@@ -607,7 +607,7 @@ h2 {
 .language-note {
   display: block;
   color: var(--muted);
-  font: 9px var(--font-mono);
+  font: 13px var(--font-mono);
   margin-top: 18px;
   padding-left: 35px;
 }
@@ -629,7 +629,7 @@ h2 {
   color: var(--accent);
 }
 .toolbox-title .eyebrow {
-  font-size: 9px;
+  font-size: 13px;
   letter-spacing: 1px;
 }
 .toolbox-dots {
@@ -656,7 +656,7 @@ h2 {
   padding-top: 4px;
 }
 .toolbox h3 {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 12px;
 }
@@ -666,7 +666,7 @@ h2 {
   gap: 6px;
 }
 .tags > span {
-  font: 9px var(--font-mono);
+  font: 13px var(--font-mono);
   color: var(--muted);
   padding: 6px 8px;
   border: 1px solid var(--border);
@@ -679,7 +679,7 @@ h2 {
   align-items: center;
   gap: 10px;
   color: var(--subtle);
-  font: 9px var(--font-mono);
+  font: 13px var(--font-mono);
 }
 .toolbox-bottom strong {
   color: var(--accent);
@@ -693,7 +693,7 @@ h2 {
   margin-bottom: 35px;
 }
 .section-side-note {
-  font-size: 11px;
+  font-size: 15px;
   color: var(--muted);
   max-width: 190px;
   line-height: 1.9;
@@ -1151,7 +1151,7 @@ h2 {
   flex: 1;
 }
 .project-category {
-  font: 7px var(--font-mono);
+  font: 12px var(--font-mono);
   letter-spacing: 0.7px;
   color: var(--muted);
   display: flex;
@@ -1162,7 +1162,7 @@ h2 {
   color: var(--subtle);
 }
 .project-copy h3 {
-  font-size: 17px;
+  font-size: 22px;
   letter-spacing: -0.5px;
   font-weight: 600;
   line-height: 1.5;
@@ -1175,7 +1175,7 @@ h2 {
   color: var(--accent);
 }
 .project-copy p {
-  font-size: 11px;
+  font-size: 16px;
   line-height: 1.9;
   color: var(--muted);
   margin-top: 9px;
@@ -1187,7 +1187,7 @@ h2 {
   gap: 5px;
 }
 .project-tags > span {
-  font-size: 7px;
+  font-size: 12px;
   padding: 5px 6px;
 }
 .project-card-bottom {
@@ -1198,7 +1198,7 @@ h2 {
   padding-block: 15px;
   margin-top: auto;
   color: var(--muted);
-  font-size: 8px;
+  font-size: 13px;
   gap: 7px;
 }
 .project-card-bottom strong {
@@ -1231,7 +1231,7 @@ h2 {
   gap: 95px;
 }
 .section-description {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.9;
   color: var(--muted);
   margin-top: 17px;
@@ -1281,12 +1281,12 @@ h2 {
   justify-content: space-between;
   gap: 12px;
   color: var(--muted);
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
   letter-spacing: 0.5px;
 }
 .job-type {
   color: var(--subtle);
-  font-size: 7px;
+  font-size: 11px;
 }
 .timeline h3 {
   font-size: 20px;
@@ -1295,20 +1295,20 @@ h2 {
   margin-top: 17px;
 }
 .timeline h4 {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--accent);
   margin-top: 7px;
 }
 .timeline p {
-  font-size: 11px;
+  font-size: 16px;
   line-height: 1.9;
   color: var(--muted);
   max-width: 450px;
   margin-top: 12px;
 }
 .research-tag {
-  font: 7px var(--font-mono);
+  font: 12px var(--font-mono);
   letter-spacing: 0.6px;
   display: inline-flex;
   align-items: center;
@@ -1370,16 +1370,16 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
+  font-size: 15px;
 }
 .github-panel-top strong {
   font-weight: 500;
 }
 .github-panel-top > span > .muted {
-  font: 9px var(--font-mono);
+  font: 13px var(--font-mono);
 }
 .integration-label {
-  font: 7px var(--font-mono);
+  font: 12px var(--font-mono);
   letter-spacing: 0.7px;
   color: var(--muted);
   display: flex;
@@ -1467,7 +1467,7 @@ h2 {
   letter-spacing: -0.3px;
 }
 .contribution-message p {
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--muted);
   margin-top: 8px;
@@ -1480,7 +1480,7 @@ h2 {
   border-radius: 3px;
   background: var(--surface);
   color: var(--text);
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.7px;
   cursor: pointer;
@@ -1495,7 +1495,7 @@ h2 {
   align-items: center;
   gap: 15px;
   color: var(--subtle);
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
 }
 .empty-legend {
   display: flex;
@@ -1543,7 +1543,7 @@ h2 {
 }
 .contact-main p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.9;
   max-width: 395px;
   margin-top: 25px;
@@ -1615,7 +1615,7 @@ h2 {
   gap: 26px;
 }
 .contact-socials > a {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
   display: flex;
   align-items: center;
@@ -1636,14 +1636,14 @@ h2 {
   font-size: 24px;
 }
 .footer > span {
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
   color: var(--subtle);
 }
 .footer-dot {
   margin: 0 10px;
 }
 .back-top {
-  font-size: 9px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -1678,7 +1678,7 @@ h2 {
 }
 .dialog-inner > .project-category {
   color: var(--accent);
-  font-size: 9px;
+  font-size: 12px;
 }
 .dialog-inner h2 {
   font-size: 32px;
@@ -1691,7 +1691,7 @@ h2 {
 }
 .dialog-inner > p {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 17px;
   line-height: 1.9;
   margin-top: 12px;
 }
@@ -1703,7 +1703,7 @@ h2 {
 .result-list li {
   display: flex;
   gap: 12px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.85;
   color: var(--muted);
   margin-bottom: 12px;
@@ -1723,11 +1723,11 @@ h2 {
   align-items: center;
 }
 .dialog-footer > span {
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
   color: var(--subtle);
 }
 .text-link {
-  font-size: 10px;
+  font-size: 14px;
   display: inline-flex;
   gap: 9px;
   align-items: center;
@@ -1865,14 +1865,14 @@ h2 {
     width: calc(100% - 48px);
   }
   .header {
-    height: 76px;
+    height: 84px;
   }
   .nav {
     gap: 18px;
     margin-left: 0;
   }
   .nav a {
-    font-size: 11px;
+    font-size: 15px;
   }
   .header-controls {
     gap: 8px;
@@ -1887,31 +1887,31 @@ h2 {
     letter-spacing: -2px;
   }
   .hero-eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1px;
   }
   .hero-description {
-    font-size: 12px;
+    font-size: 16px;
     max-width: 320px;
   }
   .hello {
-    font-size: 12px;
+    font-size: 17px;
     margin-top: 29px;
   }
   .hero-actions {
     gap: 16px;
   }
   .button {
-    font-size: 10px;
+    font-size: 14px;
     padding: 13px 14px;
     gap: 13px;
   }
   .resume-link {
-    font-size: 10px;
+    font-size: 14px;
     gap: 7px;
   }
   .hero-meta {
-    font-size: 8px;
+    font-size: 12px;
     gap: 8px;
   }
   .hero-socials {
@@ -1972,13 +1972,13 @@ h2 {
     font-size: 15px;
   }
   .body-copy {
-    font-size: 11px;
+    font-size: 15px;
   }
   .toolbox-title {
     padding: 18px 16px;
   }
   .toolbox-title .eyebrow {
-    font-size: 8px;
+    font-size: 12px;
   }
   .toolbox-group {
     gap: 12px;
@@ -1986,7 +1986,7 @@ h2 {
     padding-block: 18px;
   }
   .tags > span {
-    font-size: 8px;
+    font-size: 12px;
     padding: 5px 6px;
   }
   .project-grid {
@@ -2016,10 +2016,10 @@ h2 {
     font-size: 18px;
   }
   .project-copy p {
-    font-size: 11px;
+    font-size: 15px;
   }
   .project-tags > span {
-    font-size: 7px;
+    font-size: 11px;
   }
   .finance-window {
     height: 200px;
@@ -2062,7 +2062,7 @@ h2 {
     font-size: 18px;
   }
   .timeline-meta {
-    font-size: 7px;
+    font-size: 11px;
   }
   .job-type {
     display: none;
@@ -2081,7 +2081,7 @@ h2 {
     gap: 3px;
   }
   .contribution-message p {
-    font-size: 9px;
+    font-size: 13px;
     max-width: 240px;
   }
   .github-panel-top > span > .muted {
@@ -2102,7 +2102,7 @@ h2 {
     gap: 15px;
   }
   .email-group > a {
-    font-size: 14px;
+    font-size: 18px;
   }
   .footer-note {
     display: none;
@@ -2113,20 +2113,20 @@ h2 {
 }
 @media (max-width: 650px) {
   html {
-    scroll-padding-top: 88px;
+    scroll-padding-top: 98px;
   }
   .container {
     width: calc(100% - 40px);
   }
   .header {
-    height: 70px;
+    height: 80px;
   }
   .header-inner {
     width: calc(100% - 40px);
     gap: 10px;
   }
   .wordmark {
-    font-size: 27px;
+    font-size: 31px;
   }
   .header-controls {
     gap: 8px;
@@ -2142,7 +2142,7 @@ h2 {
     position: absolute;
     left: 0;
     right: 0;
-    top: 69px;
+    top: 79px;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
     height: auto;
@@ -2156,7 +2156,7 @@ h2 {
     gap: 0;
   }
   .nav a {
-    font-size: 14px;
+    font-size: 18px;
     padding: 15px 8px;
     height: auto;
   }
@@ -2172,12 +2172,12 @@ h2 {
     gap: 0;
   }
   .hero-eyebrow {
-    font-size: 8px;
+    font-size: 12px;
     letter-spacing: 1px;
   }
   .hello {
     margin-top: 30px;
-    font-size: 13px;
+    font-size: 17px;
     margin-bottom: 15px;
   }
   h1 {
@@ -2186,7 +2186,7 @@ h2 {
     line-height: 1.15;
   }
   .hero-description {
-    font-size: 12px;
+    font-size: 16px;
     max-width: 370px;
     margin-top: 23px;
   }
@@ -2195,16 +2195,16 @@ h2 {
     gap: 23px;
   }
   .button {
-    font-size: 11px;
+    font-size: 15px;
     min-height: 45px;
     padding: 13px 16px;
   }
   .resume-link {
-    font-size: 11px;
+    font-size: 15px;
     gap: 8px;
   }
   .hero-meta {
-    font-size: 9px;
+    font-size: 12px;
     gap: 12px;
     margin-top: 25px;
   }
@@ -2271,7 +2271,7 @@ h2 {
     gap: 33px;
   }
   .eyebrow {
-    font-size: 8px;
+    font-size: 12px;
     letter-spacing: 1.5px;
   }
   h2 {
@@ -2285,7 +2285,7 @@ h2 {
     margin-top: 23px;
   }
   .body-copy {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.9;
   }
   .education {
@@ -2295,13 +2295,13 @@ h2 {
     font-size: 12px;
   }
   .education div > span {
-    font-size: 10px;
+    font-size: 13px;
   }
   .toolbox-title {
     padding: 19px;
   }
   .toolbox-title .eyebrow {
-    font-size: 9px;
+    font-size: 13px;
   }
   .toolbox-group {
     margin-inline: 20px;
@@ -2309,10 +2309,10 @@ h2 {
     padding-block: 20px;
   }
   .toolbox h3 {
-    font-size: 13px;
+    font-size: 16px;
   }
   .toolbox .tags > span {
-    font-size: 9px;
+    font-size: 13px;
     padding: 6px 8px;
   }
   .toolbox-bottom {
@@ -2347,14 +2347,14 @@ h2 {
     padding: 24px 22px 0;
   }
   .project-category {
-    font-size: 8px;
+    font-size: 12px;
   }
   .project-copy h3 {
     font-size: 21px;
     margin-top: 13px;
   }
   .project-copy p {
-    font-size: 12px;
+    font-size: 16px;
     min-height: 0;
   }
   .project-tags {
@@ -2362,11 +2362,11 @@ h2 {
     margin-bottom: 23px;
   }
   .project-tags > span {
-    font-size: 8px;
+    font-size: 12px;
     padding: 6px 8px;
   }
   .project-card-bottom {
-    font-size: 9px;
+    font-size: 13px;
     padding-block: 16px;
   }
   .project-card-bottom strong {
@@ -2470,7 +2470,7 @@ h2 {
     content: " ";
   }
   .section-description {
-    font-size: 12px;
+    font-size: 16px;
     max-width: 350px;
   }
   .timeline {
@@ -2481,20 +2481,20 @@ h2 {
     left: -30px;
   }
   .timeline-meta {
-    font-size: 8px;
+    font-size: 12px;
   }
   .job-type {
     display: block;
-    font-size: 6px;
+    font-size: 11px;
   }
   .timeline h3 {
     font-size: 20px;
   }
   .timeline h4 {
-    font-size: 12px;
+    font-size: 15px;
   }
   .timeline p {
-    font-size: 12px;
+    font-size: 16px;
   }
   .timeline-item {
     margin-bottom: 25px;
@@ -2511,7 +2511,7 @@ h2 {
     font-size: 30px;
   }
   .github-link {
-    font-size: 10px;
+    font-size: 14px;
     min-height: 39px;
     padding: 10px 14px;
   }
@@ -2523,10 +2523,10 @@ h2 {
     gap: 13px;
   }
   .github-panel-top > span:first-child {
-    font-size: 12px;
+    font-size: 15px;
   }
   .integration-label {
-    font-size: 6px;
+    font-size: 11px;
     padding: 5px 6px;
   }
   .github-panel-inline .contribution-placeholder {
@@ -2551,14 +2551,14 @@ h2 {
     opacity: 0.5;
   }
   .contribution-message h3 {
-    font-size: 14px;
+    font-size: 18px;
   }
   .contribution-message p {
-    font-size: 10px;
+    font-size: 14px;
     max-width: 255px;
   }
   .github-panel-bottom {
-    font-size: 7px;
+    font-size: 11px;
     line-height: 1.8;
   }
   .empty-legend {
@@ -2575,7 +2575,7 @@ h2 {
     max-width: 380px;
   }
   .contact-main p {
-    font-size: 12px;
+    font-size: 16px;
     margin-top: 21px;
   }
   .contact-arrow {
@@ -2595,7 +2595,7 @@ h2 {
     gap: 27px;
   }
   .contact-socials > a {
-    font-size: 11px;
+    font-size: 14px;
   }
   .contact-section {
     padding-bottom: 40px;
@@ -2612,13 +2612,13 @@ h2 {
     flex-basis: 50%;
   }
   .footer > span {
-    font-size: 7px;
+    font-size: 11px;
     order: 3;
     flex-basis: 100%;
     margin-top: 13px;
   }
   .back-top {
-    font-size: 8px;
+    font-size: 12px;
     gap: 9px;
   }
   .dialog-inner {
@@ -2628,10 +2628,10 @@ h2 {
     font-size: 29px;
   }
   .dialog-inner > p {
-    font-size: 12px;
+    font-size: 16px;
   }
   .result-list li {
-    font-size: 11px;
+    font-size: 15px;
   }
   .dialog-top {
     margin-bottom: 20px;
@@ -2642,25 +2642,25 @@ h2 {
     gap: 14px;
   }
   .button {
-    font-size: 10px;
+    font-size: 14px;
     padding-inline: 13px;
   }
   .resume-link {
-    font-size: 10px;
+    font-size: 14px;
   }
   .hero-meta {
     gap: 8px;
-    font-size: 8px;
+    font-size: 11px;
   }
   .hero-socials {
     gap: 10px;
     padding-left: 11px;
   }
   .hero-eyebrow {
-    font-size: 7px;
+    font-size: 11px;
   }
   .email-group > a {
-    font-size: 15px;
+    font-size: 17px;
   }
   .job-type {
     display: none;
