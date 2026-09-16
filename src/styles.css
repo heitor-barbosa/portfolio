@@ -258,10 +258,6 @@ main:focus {
   padding-top: 36px;
   padding-bottom: 34px;
 }
-.hero-eyebrow {
-  font-size: 13px;
-  letter-spacing: 1.4px;
-}
 .hello {
   font-size: 18px;
   display: flex;
@@ -285,13 +281,6 @@ h1 {
 }
 h1 > span {
   color: var(--accent);
-}
-.hero-description {
-  font-size: 17px;
-  line-height: 1.9;
-  color: var(--muted);
-  max-width: 390px;
-  margin-top: 23px;
 }
 .hero-actions {
   display: flex;
@@ -1811,14 +1800,6 @@ h2 {
     font-size: 42px;
     letter-spacing: -2px;
   }
-  .hero-eyebrow {
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
-  .hero-description {
-    font-size: 16px;
-    max-width: 320px;
-  }
   .hello {
     font-size: 17px;
     margin-top: 29px;
@@ -2088,10 +2069,6 @@ h2 {
     padding-bottom: 24px;
     gap: 0;
   }
-  .hero-eyebrow {
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
   .hello {
     margin-top: 30px;
     font-size: 17px;
@@ -2101,11 +2078,6 @@ h2 {
     font-size: clamp(38px, 8.3vw, 54px);
     letter-spacing: -2px;
     line-height: 1.15;
-  }
-  .hero-description {
-    font-size: 16px;
-    max-width: 370px;
-    margin-top: 23px;
   }
   .hero-actions {
     margin-top: 25px;
@@ -2552,9 +2524,6 @@ h2 {
   .hero-socials {
     gap: 10px;
     padding-left: 11px;
-  }
-  .hero-eyebrow {
-    font-size: 11px;
   }
   .email-group > a {
     font-size: 17px;

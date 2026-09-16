@@ -552,13 +552,13 @@ export default function App() {
         : "Heitor Barbosa — Software Engineer";
     document
       .querySelector('meta[name="description"]')
-      ?.setAttribute("content", t.intro);
+      ?.setAttribute("content", t.metaDescription);
     try {
       localStorage.setItem("heitor-language", lang);
     } catch {
       /* Storage can be disabled. */
     }
-  }, [lang, t.intro]);
+  }, [lang, t.metaDescription]);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     document
@@ -692,22 +692,14 @@ export default function App() {
           aria-labelledby="hero-heading"
         >
           <div className="hero-copy">
-            <span className="eyebrow hero-eyebrow">
-              <span className="status-dot" />
-              {t.eyebrow}
-            </span>
             <p className="hello">
               {t.hello}
               <span className="hello-line" />
             </p>
             <h1 id="hero-heading">
               {t.title[0]}
-              <br />
-              {t.title[1]}
-              <br />
-              <span>{t.title[2]}</span>
+              <br /> <span>{t.title[1]}</span>
             </h1>
-            <p className="hero-description">{t.intro}</p>
             <div className="hero-actions">
               <a href="#projetos" className="button button-primary">
                 {t.projectsCta}

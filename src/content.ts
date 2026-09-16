@@ -15,11 +15,10 @@ export const content = {
     closeMenu: "Fechar menu",
     theme: "Ativar tema claro",
     themeDark: "Ativar tema escuro",
-    eyebrow: "ENGENHARIA DE SOFTWARE & CURIOSIDADE",
     hello: "Olá, eu sou o Heitor",
-    title: ["Código que resolve.", "Software que", "faz a diferença."],
-    intro:
-      "Desenvolvedor full stack. Transformo problemas complexos em sistemas eficientes — do backend à experiência de quem usa.",
+    title: ["Engenheiro de", "Software."],
+    metaDescription:
+      "Portfólio de Heitor Souza, engenheiro de software com experiência em desenvolvimento full stack.",
     projectsCta: "Explore meus projetos",
     resume: "Baixar currículo",
     resumeLang: "Currículo em português (PDF)",
@@ -181,11 +180,10 @@ export const content = {
     closeMenu: "Close menu",
     theme: "Switch to light theme",
     themeDark: "Switch to dark theme",
-    eyebrow: "SOFTWARE ENGINEERING & CURIOSITY",
     hello: "Hi, I’m Heitor",
-    title: ["Code that solves.", "Software that", "makes a difference."],
-    intro:
-      "Full stack developer. I turn complex problems into efficient systems — from the backend to the experience of the people who use them.",
+    title: ["Software", "Engineer."],
+    metaDescription:
+      "Heitor Souza's portfolio, a software engineer with full stack development experience.",
     projectsCta: "Explore my projects",
     resume: "Download résumé",
     resumeLang: "Résumé in Portuguese (PDF)",
