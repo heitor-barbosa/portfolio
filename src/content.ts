@@ -16,7 +16,10 @@ export const content = {
     theme: "Ativar tema claro",
     themeDark: "Ativar tema escuro",
     hello: "Olá, eu sou o Heitor",
-    title: ["Engenheiro de", "Software."],
+    heroTitles: [
+      ["Engenheiro de", "Software."],
+      ["Desenvolvedor", "Full Stack."],
+    ],
     metaDescription:
       "Portfólio de Heitor Souza, engenheiro de software com experiência em desenvolvimento full stack.",
     projectsCta: "Explore meus projetos",
@@ -181,7 +184,10 @@ export const content = {
     theme: "Switch to light theme",
     themeDark: "Switch to dark theme",
     hello: "Hi, I’m Heitor",
-    title: ["Software", "Engineer."],
+    heroTitles: [
+      ["Software", "Engineer."],
+      ["Full Stack", "Developer."],
+    ],
     metaDescription:
       "Heitor Souza's portfolio, a software engineer with full stack development experience.",
     projectsCta: "Explore my projects",

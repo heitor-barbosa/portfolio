@@ -67,6 +67,84 @@ function readPreference(key: string, fallback: string) {
   }
 }
 
+function TypewriterTitle({ titles }: { titles: string[][] }) {
+  const [activeTitleIndex, setActiveTitleIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [lead, accent] = titles[activeTitleIndex];
+  const text = `${lead} ${accent}`;
+
+  useEffect(() => {
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setActiveTitleIndex(0);
+      setDisplayed(`${titles[0][0]} ${titles[0][1]}`);
+      return;
+    }
+
+    let timeout: number;
+    let titleIndex = 0;
+    let characterIndex = 0;
+    let deleting = false;
+
+    setActiveTitleIndex(0);
+    setDisplayed("");
+
+    const type = () => {
+      const currentText = `${titles[titleIndex][0]} ${titles[titleIndex][1]}`;
+
+      if (!deleting) {
+        characterIndex += 1;
+        setDisplayed(currentText.slice(0, characterIndex));
+
+        if (characterIndex === currentText.length) {
+          timeout = window.setTimeout(() => {
+            deleting = true;
+            type();
+          }, 7000);
+          return;
+        }
+
+        timeout = window.setTimeout(type, 140);
+        return;
+      }
+
+      characterIndex -= 1;
+      setDisplayed(currentText.slice(0, characterIndex));
+
+      if (characterIndex === 0) {
+        titleIndex = (titleIndex + 1) % titles.length;
+        setActiveTitleIndex(titleIndex);
+        deleting = false;
+        timeout = window.setTimeout(type, 300);
+        return;
+      }
+
+      timeout = window.setTimeout(type, 60);
+    };
+
+    timeout = window.setTimeout(type, 140);
+    return () => window.clearTimeout(timeout);
+  }, [titles]);
+
+  const typedLead = displayed.slice(0, Math.min(displayed.length, lead.length));
+  const typedAccent = displayed.slice(lead.length + 1);
+
+  return (
+    <>
+      <span className="sr-only">{text}</span>
+      <span className="typewriter-text" aria-hidden="true">
+        {typedLead}
+        {displayed.length > lead.length && (
+          <>
+            <br />
+            <span className="typewriter-accent">{typedAccent}</span>
+          </>
+        )}
+        <span className="typewriter-cursor" />
+      </span>
+    </>
+  );
+}
+
 function HeroVisual() {
   return (
     <div className="hero-visual" aria-hidden="true">
@@ -697,8 +775,7 @@ export default function App() {
               <span className="hello-line" />
             </p>
             <h1 id="hero-heading">
-              {t.title[0]}
-              <br /> <span>{t.title[1]}</span>
+              <TypewriterTitle titles={t.heroTitles} />
             </h1>
             <div className="hero-actions">
               <a href="#projetos" className="button button-primary">
