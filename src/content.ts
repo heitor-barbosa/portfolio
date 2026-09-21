@@ -9,7 +9,7 @@ export const profile = {
 
 export const content = {
   pt: {
-    nav: ["Sobre", "Projetos", "Experiência", "Contato"],
+    nav: ["Projetos", "Experiência", "Sobre", "Contato"],
     skip: "Pular para o conteúdo",
     menu: "Abrir menu",
     closeMenu: "Fechar menu",
@@ -27,7 +27,7 @@ export const content = {
     resumeLang: "Currículo em português (PDF)",
     location: "Goiânia, Brasil",
     visualLabels: ["Interfaces", "Sistemas", "Inteligência"],
-    aboutLabel: "01 / SOBRE MIM",
+    aboutLabel: "03 / SOBRE MIM",
     aboutTitle: "Entre a lógica",
     aboutAccent: "e a possibilidade.",
     aboutText:
@@ -39,7 +39,7 @@ export const content = {
     educationDate: "2024 — atual",
     languages: "Português nativo · Inglês fluente",
     stackLabel: "MINHA CAIXA DE FERRAMENTAS",
-    projectLabel: "02 / PROJETOS SELECIONADOS",
+    projectLabel: "01 / PROJETOS SELECIONADOS",
     projectTitle: "Problemas reais.",
     projectAccent: "Impacto concreto.",
     projectIntro: "Uma seleção do que venho construindo na prática.",
@@ -102,7 +102,7 @@ export const content = {
     detailHeading: "O QUE EU CONSTRUÍ",
     resultsHeading: "NA PRÁTICA",
     close: "Fechar detalhes",
-    experienceLabel: "03 / TRAJETÓRIA",
+    experienceLabel: "02 / TRAJETÓRIA",
     experienceTitle: "Sempre em",
     experienceAccent: "construção.",
     experienceIntro: "Aprender, colocar em prática e seguir evoluindo.",
@@ -177,7 +177,7 @@ export const content = {
     ai: ["Especificar", "Orquestrar", "Construir", "Validar"],
   },
   en: {
-    nav: ["About", "Projects", "Experience", "Contact"],
+    nav: ["Projects", "Experience", "About", "Contact"],
     skip: "Skip to content",
     menu: "Open menu",
     closeMenu: "Close menu",
@@ -195,7 +195,7 @@ export const content = {
     resumeLang: "Résumé in Portuguese (PDF)",
     location: "Goiânia, Brazil",
     visualLabels: ["Interfaces", "Systems", "Intelligence"],
-    aboutLabel: "01 / ABOUT ME",
+    aboutLabel: "03 / ABOUT ME",
     aboutTitle: "Between logic",
     aboutAccent: "and possibility.",
     aboutText:
@@ -207,7 +207,7 @@ export const content = {
     educationDate: "2024 — present",
     languages: "Native Portuguese · Fluent English",
     stackLabel: "MY TOOLBOX",
-    projectLabel: "02 / SELECTED PROJECTS",
+    projectLabel: "01 / SELECTED PROJECTS",
     projectTitle: "Real problems.",
     projectAccent: "Tangible impact.",
     projectIntro: "A selection of what I’ve been building.",
@@ -270,7 +270,7 @@ export const content = {
     detailHeading: "WHAT I BUILT",
     resultsHeading: "IN PRACTICE",
     close: "Close details",
-    experienceLabel: "03 / MY JOURNEY",
+    experienceLabel: "02 / MY JOURNEY",
     experienceTitle: "Always",
     experienceAccent: "building.",
     experienceIntro: "Learning, putting it into practice, and moving forward.",

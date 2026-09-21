@@ -272,22 +272,22 @@ main:focus {
   padding-bottom: 34px;
 }
 .hello {
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 15px;
   margin-top: 35px;
   margin-bottom: 15px;
   color: var(--muted);
 }
 .hello-line {
   display: block;
-  width: 32px;
+  width: 40px;
   height: 1px;
   background: var(--subtle);
 }
 h1 {
-  font-size: clamp(43px, 4.25vw, 62px);
+  font-size: clamp(48px, 4.7vw, 70px);
   line-height: 1.13;
   font-weight: 500;
   letter-spacing: -3px;
@@ -312,7 +312,7 @@ h1 {
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 30px;
   margin-top: 29px;
 }
 .button {
@@ -329,6 +329,12 @@ h1 {
     transform 0.2s,
     background 0.2s,
     border-color 0.2s;
+}
+.hero .button {
+  gap: 24px;
+  font-size: 17px;
+  padding: 18px 24px;
+  min-height: 56px;
 }
 .button:hover {
   transform: translateY(-2px);
@@ -350,9 +356,17 @@ h1 {
 .resume-link {
   display: flex;
   align-items: center;
-  gap: 11px;
-  font-size: 15px;
+  gap: 12px;
+  font-size: 17px;
   color: var(--muted);
+}
+.hero .button svg {
+  width: 21px;
+  height: 21px;
+}
+.resume-link svg {
+  width: 19px;
+  height: 19px;
 }
 .resume-link:hover {
   color: var(--text);
@@ -360,9 +374,9 @@ h1 {
 .hero-meta {
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 15px;
   margin-top: 34px;
-  font: 13px var(--font-mono);
+  font: 15px var(--font-mono);
   color: var(--muted);
 }
 .hero-meta > span:first-child {
@@ -370,12 +384,20 @@ h1 {
   align-items: center;
   gap: 6px;
 }
+.hero-meta > span:first-child svg {
+  width: 16px;
+  height: 16px;
+}
 .hero-socials {
   display: flex;
-  gap: 15px;
+  gap: 17px;
   border-left: 1px solid var(--border);
   margin-left: 3px;
   padding-left: 18px;
+}
+.hero-socials svg {
+  width: 20px;
+  height: 20px;
 }
 .hero-socials a:hover {
   color: var(--accent);
@@ -1719,7 +1741,7 @@ h2 {
     display: none;
   }
   h1 {
-    font-size: 49px;
+    font-size: 55px;
     letter-spacing: -2.5px;
   }
   .hero {
@@ -1830,28 +1852,33 @@ h2 {
     gap: 0;
   }
   h1 {
-    font-size: 42px;
+    font-size: 47px;
     letter-spacing: -2px;
   }
   .hello {
-    font-size: 17px;
+    font-size: 18px;
     margin-top: 29px;
   }
   .hero-actions {
-    gap: 16px;
+    gap: 18px;
   }
   .button {
     font-size: 14px;
     padding: 13px 14px;
     gap: 13px;
   }
+  .hero .button {
+    font-size: 16px;
+    padding: 15px 17px;
+    gap: 15px;
+  }
   .resume-link {
-    font-size: 14px;
-    gap: 7px;
+    font-size: 16px;
+    gap: 9px;
   }
   .hero-meta {
-    font-size: 12px;
-    gap: 8px;
+    font-size: 13px;
+    gap: 9px;
   }
   .hero-socials {
     padding-left: 11px;
@@ -2105,29 +2132,34 @@ h2 {
   }
   .hello {
     margin-top: 30px;
-    font-size: 17px;
+    font-size: 18px;
     margin-bottom: 15px;
   }
   h1 {
-    font-size: clamp(38px, 8.3vw, 54px);
+    font-size: clamp(40px, 9vw, 56px);
     letter-spacing: -2px;
     line-height: 1.15;
   }
   .hero-actions {
     margin-top: 25px;
-    gap: 23px;
+    gap: 20px;
   }
   .button {
     font-size: 15px;
     min-height: 45px;
     padding: 13px 16px;
   }
+  .hero .button {
+    font-size: 16px;
+    min-height: 50px;
+    padding: 15px 18px;
+  }
   .resume-link {
-    font-size: 15px;
-    gap: 8px;
+    font-size: 16px;
+    gap: 9px;
   }
   .hero-meta {
-    font-size: 12px;
+    font-size: 13px;
     gap: 12px;
     margin-top: 25px;
   }

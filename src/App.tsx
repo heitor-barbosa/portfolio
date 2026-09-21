@@ -35,7 +35,7 @@ import {
   type ContributionCalendar,
 } from "./github";
 
-const sectionIds = ["sobre", "projetos", "experiencia", "contato"];
+const sectionIds = ["projetos", "experiencia", "sobre", "contato"];
 const toolbox = [
   {
     label: "Backend",
@@ -824,64 +824,6 @@ export default function App() {
         <GitHubActivity t={t} lang={lang} />
         <div className="container">
           <section
-            className="section about-section"
-            id="sobre"
-            aria-labelledby="about-heading"
-          >
-            <div className="about-main">
-              <span className="eyebrow">{t.aboutLabel}</span>
-              <h2 id="about-heading">
-                {t.aboutTitle}
-                <br />
-                <span className="muted-heading">{t.aboutAccent}</span>
-              </h2>
-              <p className="about-lead">{t.aboutText}</p>
-              <p className="body-copy">{t.aboutBody}</p>
-              <div className="education">
-                <GraduationCap size={22} />
-                <div>
-                  <strong>{t.education}</strong>
-                  <span>
-                    {t.university}{" "}
-                    <span className="education-date">· {t.educationDate}</span>
-                  </span>
-                </div>
-                <ArrowUpRight size={17} />
-              </div>
-              <span className="language-note">{t.languages}</span>
-            </div>
-            <div className="toolbox">
-              <div className="toolbox-title">
-                <Terminal size={18} />
-                <span className="eyebrow">{t.stackLabel}</span>
-                <span className="toolbox-dots">
-                  <i />
-                  <i />
-                  <i />
-                </span>
-              </div>
-              {toolbox.map((group, i) => (
-                <div className="toolbox-group" key={group.label}>
-                  <span className="toolbox-index">0{i + 1}</span>
-                  <div>
-                    <h3>{group.label}</h3>
-                    <div className="tags">
-                      {group.items.map((item) => (
-                        <span key={item}>{item}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-              <div className="toolbox-bottom">
-                <Braces size={15} />
-                <span>
-                  always_learning: <strong>true</strong>
-                </span>
-              </div>
-            </div>
-          </section>
-          <section
             className="section projects-section"
             id="projetos"
             aria-labelledby="projects-heading"
@@ -985,6 +927,64 @@ export default function App() {
                   )}
                 </article>
               ))}
+            </div>
+          </section>
+          <section
+            className="section about-section"
+            id="sobre"
+            aria-labelledby="about-heading"
+          >
+            <div className="about-main">
+              <span className="eyebrow">{t.aboutLabel}</span>
+              <h2 id="about-heading">
+                {t.aboutTitle}
+                <br />
+                <span className="muted-heading">{t.aboutAccent}</span>
+              </h2>
+              <p className="about-lead">{t.aboutText}</p>
+              <p className="body-copy">{t.aboutBody}</p>
+              <div className="education">
+                <GraduationCap size={22} />
+                <div>
+                  <strong>{t.education}</strong>
+                  <span>
+                    {t.university}{" "}
+                    <span className="education-date">· {t.educationDate}</span>
+                  </span>
+                </div>
+                <ArrowUpRight size={17} />
+              </div>
+              <span className="language-note">{t.languages}</span>
+            </div>
+            <div className="toolbox">
+              <div className="toolbox-title">
+                <Terminal size={18} />
+                <span className="eyebrow">{t.stackLabel}</span>
+                <span className="toolbox-dots">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+              </div>
+              {toolbox.map((group, i) => (
+                <div className="toolbox-group" key={group.label}>
+                  <span className="toolbox-index">0{i + 1}</span>
+                  <div>
+                    <h3>{group.label}</h3>
+                    <div className="tags">
+                      {group.items.map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <div className="toolbox-bottom">
+                <Braces size={15} />
+                <span>
+                  always_learning: <strong>true</strong>
+                </span>
+              </div>
             </div>
           </section>
           <section
