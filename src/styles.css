@@ -1503,7 +1503,6 @@ h2 {
   gap: 30px;
   margin-top: 43px;
   padding-top: 28px;
-  border-top: 1px solid var(--border);
 }
 .email-group {
   position: relative;
