@@ -14,7 +14,6 @@ import {
   Download,
   GitBranch,
   Github,
-  GraduationCap,
   Layers3,
   Linkedin,
   MapPin,
@@ -942,19 +941,6 @@ export default function App() {
                 <span className="muted-heading">{t.aboutAccent}</span>
               </h2>
               <p className="about-lead">{t.aboutText}</p>
-              <p className="body-copy">{t.aboutBody}</p>
-              <div className="education">
-                <GraduationCap size={22} />
-                <div>
-                  <strong>{t.education}</strong>
-                  <span>
-                    {t.university}{" "}
-                    <span className="education-date">· {t.educationDate}</span>
-                  </span>
-                </div>
-                <ArrowUpRight size={17} />
-              </div>
-              <span className="language-note">{t.languages}</span>
             </div>
             <div className="toolbox">
               <div className="toolbox-title">

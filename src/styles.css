@@ -531,51 +531,10 @@ h2 {
   gap: 110px;
 }
 .about-lead {
-  font-size: 21px;
+  font-size: 19px;
   line-height: 1.65;
   max-width: 395px;
   margin-top: 25px;
-}
-.body-copy {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.95;
-  margin-top: 15px;
-}
-.education {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin-top: 26px;
-  border-top: 1px solid var(--border);
-  padding-top: 22px;
-}
-.education > svg:first-child {
-  color: var(--accent);
-}
-.education > svg:last-child {
-  margin-left: auto;
-  color: var(--subtle);
-}
-.education strong {
-  display: block;
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-.education div > span {
-  font-size: 14px;
-  color: var(--muted);
-}
-.education-date {
-  white-space: nowrap;
-}
-.language-note {
-  display: block;
-  color: var(--muted);
-  font: 13px var(--font-mono);
-  margin-top: 18px;
-  padding-left: 35px;
 }
 .toolbox {
   background: var(--surface);
@@ -1929,9 +1888,6 @@ h2 {
   .about-lead {
     font-size: 15px;
   }
-  .body-copy {
-    font-size: 15px;
-  }
   .toolbox-title {
     padding: 18px 16px;
   }
@@ -2218,19 +2174,6 @@ h2 {
     font-size: 17px;
     max-width: 360px;
     margin-top: 23px;
-  }
-  .body-copy {
-    font-size: 16px;
-    line-height: 1.9;
-  }
-  .education {
-    margin-top: 23px;
-  }
-  .education strong {
-    font-size: 12px;
-  }
-  .education div > span {
-    font-size: 13px;
   }
   .toolbox-title {
     padding: 19px;

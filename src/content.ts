@@ -31,13 +31,7 @@ export const content = {
     aboutTitle: "Entre a lógica",
     aboutAccent: "e a possibilidade.",
     aboutText:
-      "Gosto de entender como as coisas funcionam. E de encontrar uma forma melhor de fazê-las funcionar.",
-    aboutBody:
-      "Sou desenvolvedor backend na One Conciliadora e estudante de Engenharia de Software na UFG. Construo aplicações full stack, automatizo processos e exploro como agentes de IA podem transformar o desenvolvimento de software no CEIA/UFG.",
-    education: "Engenharia de Software",
-    university: "Universidade Federal de Goiás",
-    educationDate: "2024 — atual",
-    languages: "Português nativo · Inglês fluente",
+      "Sou desenvolvedor full stack, com foco em backend e inteligência artificial. Atualmente trabalho na One Conciliadora, construindo aplicações e automações para resolver problemas reais, e participo de pesquisas no CEIA/UFG sobre o uso de agentes de IA no desenvolvimento de software.",
     stackLabel: "MINHA CAIXA DE FERRAMENTAS",
     projectLabel: "01 / PROJETOS SELECIONADOS",
     projectTitle: "Problemas reais.",
@@ -199,13 +193,7 @@ export const content = {
     aboutTitle: "Between logic",
     aboutAccent: "and possibility.",
     aboutText:
-      "I like understanding how things work. And finding a better way to make them work.",
-    aboutBody:
-      "I’m a backend developer at One Conciliadora and a Software Engineering student at UFG. I build full stack applications, automate processes, and explore how AI agents can transform software development at CEIA/UFG.",
-    education: "BSc in Software Engineering",
-    university: "Federal University of Goiás",
-    educationDate: "2024 — present",
-    languages: "Native Portuguese · Fluent English",
+      "I’m a full stack developer focused on backend engineering and artificial intelligence. I currently work at One Conciliadora, building applications and automations that solve real problems, and contribute to research at CEIA/UFG on the use of AI agents in software development.",
     stackLabel: "MY TOOLBOX",
     projectLabel: "01 / SELECTED PROJECTS",
     projectTitle: "Real problems.",
