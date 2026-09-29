@@ -54,31 +54,16 @@ npm run build
 
 Os testes verificam troca e persistência de idioma e tema, detalhes dos projetos, fechamento do menu, cópia de e-mail e destinos dos links. Os testes em jsdom não substituem inspeção visual em navegador. `npm run format` formata o código com Prettier.
 
-## Pipeline de CI/CD
+## Integração contínua
 
-O workflow [`.github/workflows/ci-cd.yml`](.github/workflows/ci-cd.yml) executa uma pipeline completa no GitHub Actions:
+O workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) valida pull requests e pushes para `main` no GitHub Actions:
 
 1. **Static analysis:** instala as dependências com `npm ci`, verifica os tipos com TypeScript e a formatação com Prettier.
 2. **Dynamic tests:** executa os testes de componentes e interações com Vitest e Testing Library.
 3. **Production build:** gera a aplicação com Vite e armazena a pasta `dist` como artefato do GitHub Actions por sete dias.
-4. **Preview:** toda pull request para `main` é publicada no ambiente `preview` da Vercel.
-5. **Production:** todo push na `main`, ou execução manual, é publicado no ambiente `production` da Vercel.
-6. **Smoke test:** depois do deploy, a pipeline acessa a URL publicada e falha se ela não responder corretamente.
 
-Os jobs de deploy só começam se as análises, os testes e o build forem aprovados. A pipeline usa `actions/checkout`, `actions/setup-node` e `actions/upload-artifact` como ferramentas do GitHub Actions.
+O build só começa se as análises e os testes forem aprovados. A pipeline usa `actions/checkout`, `actions/setup-node` e `actions/upload-artifact`.
 
-### Configurar GitHub e Vercel
-
-Crie os ambientes `preview` e `production` em **Settings → Environments** no repositório. No ambiente `production`, é recomendável configurar um revisor obrigatório para que a publicação precise de aprovação manual.
-
-Em **Settings → Secrets and variables → Actions**, cadastre estes repository secrets:
-
-- `VERCEL_TOKEN`: token criado em **Vercel → Account Settings → Tokens**.
-- `VERCEL_ORG_ID`: valor `orgId` do arquivo local `.vercel/project.json`.
-- `VERCEL_PROJECT_ID`: valor `projectId` do arquivo local `.vercel/project.json`.
-
-O arquivo `.vercel/project.json` é criado por `vercel link` e permanece no `.gitignore`. Não envie o token para o repositório. Se a integração Git automática da Vercel continuar ativa, ela pode criar um segundo deployment para o mesmo commit; para usar somente esta pipeline, desative os deployments automáticos do projeto na Vercel.
-
-Para testar o ambiente de preview, crie uma branch e abra uma pull request para `main`. Para produção, faça merge da pull request ou execute **Actions → CI/CD → Run workflow**.
+O deploy não faz parte deste workflow. A integração Git da Vercel publica automaticamente previews de pull requests e a versão de produção quando a branch `main` é atualizada. Nenhum token ou secret da Vercel é necessário no GitHub Actions.
 
 O download do currículo inclui os dados de contato presentes no PDF original.
