@@ -395,64 +395,61 @@ function GitHubActivity({ t }: { t: Copy }) {
   // Replace this intentionally empty placeholder with a verified contributions provider.
   // Never expose a GitHub access token in client-side code.
   return (
-    <section
-      id="github"
-      className="section github-section"
-      aria-labelledby="github-heading"
-    >
-      <div className="section-heading">
-        <div>
-          <span className="eyebrow">{t.githubLabel}</span>
+    <aside className="github-inline-block" aria-labelledby="github-heading">
+      <div className="container github-inline-layout">
+        <div className="github-inline-copy">
+          <span className="eyebrow">
+            <Github size={14} /> GITHUB / @heitor-barbosa
+          </span>
           <h2 id="github-heading">{t.githubTitle}</h2>
           <p className="section-description">{t.githubText}</p>
+          <a
+            className="button button-secondary github-link"
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t.githubCta}
+            <ArrowUpRight size={16} />
+          </a>
         </div>
-        <a
-          className="button button-secondary github-link"
-          href={profile.github}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Github size={17} />
-          {t.githubCta}
-          <ArrowUpRight size={16} />
-        </a>
-      </div>
-      <div className="github-panel">
-        <div className="github-panel-top">
-          <span>
-            <Github size={20} />
-            <strong>heitor-barbosa</strong>
-            <span className="muted">/ {t.githubContributions}</span>
-          </span>
-          <span className="integration-label">
-            <span className="status-dot" />
-            {t.githubBadge}
-          </span>
-        </div>
-        <div className="contribution-placeholder">
-          <div className="contribution-grid" aria-hidden="true">
-            {Array.from({ length: 364 }, (_, i) => (
-              <i key={i} />
-            ))}
+        <div className="github-panel github-panel-inline">
+          <div className="github-panel-top">
+            <span>
+              <Github size={20} />
+              <strong>heitor-barbosa</strong>
+              <span className="muted">/ {t.githubContributions}</span>
+            </span>
+            <span className="integration-label">
+              <span className="status-dot" />
+              {t.githubBadge}
+            </span>
           </div>
-          <div className="contribution-message">
-            <GitBranch size={24} />
-            <h3>{t.githubReserved}</h3>
-            <p>{t.githubPlaceholder}</p>
+          <div className="contribution-placeholder">
+            <div className="contribution-grid" aria-hidden="true">
+              {Array.from({ length: 364 }, (_, i) => (
+                <i key={i} />
+              ))}
+            </div>
+            <div className="contribution-message">
+              <GitBranch size={24} />
+              <h3>{t.githubReserved}</h3>
+              <p>{t.githubPlaceholder}</p>
+            </div>
+          </div>
+          <div className="github-panel-bottom">
+            <span>{t.githubNote}</span>
+            <span className="empty-legend" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+              <i />
+              <i />
+            </span>
           </div>
         </div>
-        <div className="github-panel-bottom">
-          <span>{t.githubNote}</span>
-          <span className="empty-legend" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-            <i />
-            <i />
-          </span>
-        </div>
       </div>
-    </section>
+    </aside>
   );
 }
 
@@ -685,19 +682,7 @@ export default function App() {
             </a>
           </div>
         </section>
-        <div className="metrics-strip">
-          <div className="container metrics-inner">
-            {["170", "90", "30s → 3s"].map((value, i) => (
-              <div className="metric" key={value}>
-                <strong>{value}</strong>
-                <span>{t.stats[i]}</span>
-              </div>
-            ))}
-            <div className="metric-flourish" aria-hidden="true">
-              <ArrowDownRight size={44} strokeWidth={1} />
-            </div>
-          </div>
-        </div>
+        <GitHubActivity t={t} />
         <div className="container">
           <section
             className="section about-section"
@@ -863,7 +848,6 @@ export default function App() {
               ))}
             </div>
           </section>
-          <GitHubActivity t={t} />
           <section
             className="section contact-section"
             id="contato"

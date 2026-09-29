@@ -548,44 +548,6 @@ h1 > span {
 .hero-bottom a:hover {
   color: var(--accent);
 }
-.metrics-strip {
-  border-block: 1px solid var(--border);
-  background: var(--surface);
-}
-.metrics-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.3fr 0.22fr;
-  padding-block: 28px;
-  gap: 33px;
-  align-items: center;
-}
-.metric {
-  display: flex;
-  align-items: center;
-  gap: 17px;
-  border-right: 1px solid var(--border);
-  min-height: 39px;
-}
-.metric > strong {
-  font-size: 31px;
-  letter-spacing: -1px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-.metric > strong > span {
-  font-size: 23px;
-  color: var(--accent);
-}
-.metric > span {
-  color: var(--muted);
-  font-size: 10px;
-  line-height: 1.8;
-  max-width: 126px;
-}
-.metric-flourish {
-  color: var(--accent);
-  text-align: right;
-}
 .section {
   padding: 96px 0;
   border-bottom: 1px solid var(--border);
@@ -1357,8 +1319,31 @@ h2 {
   border-radius: 3px;
   margin-top: 14px;
 }
-.github-section h2 {
-  font-size: 36px;
+.github-inline-block {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(
+    90deg,
+    var(--bg),
+    color-mix(in srgb, var(--accent) 3%, var(--surface)),
+    var(--bg)
+  );
+}
+.github-inline-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.45fr);
+  align-items: center;
+  gap: 48px;
+}
+.github-inline-copy h2 {
+  font-size: 30px;
+  margin-top: 14px;
+}
+.github-inline-copy .section-description {
+  margin-top: 11px;
+}
+.github-inline-copy .github-link {
+  margin-top: 21px;
 }
 .github-link {
   gap: 10px;
@@ -1370,6 +1355,10 @@ h2 {
   background: var(--surface);
   padding: 24px 27px 18px;
   overflow: hidden;
+}
+.github-panel-inline .contribution-placeholder {
+  height: 125px;
+  margin-top: 12px;
 }
 .github-panel-top {
   display: flex;
@@ -1771,15 +1760,6 @@ h2 {
   .about-section {
     gap: 55px;
   }
-  .metric {
-    gap: 12px;
-  }
-  .metric > strong {
-    font-size: 27px;
-  }
-  .metric > span {
-    font-size: 9px;
-  }
   .project-grid {
     gap: 15px;
   }
@@ -1937,26 +1917,6 @@ h2 {
   .hero-bottom {
     margin-top: 40px;
   }
-  .metrics-inner {
-    gap: 20px;
-    grid-template-columns: 1fr 1fr 1.2fr;
-    padding-block: 24px;
-  }
-  .metric-flourish {
-    display: none;
-  }
-  .metric:nth-child(3) {
-    border: 0;
-  }
-  .metric {
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
-  }
-  .metric > span {
-    max-width: none;
-    font-size: 8px;
-  }
   .section {
     padding-block: 75px;
   }
@@ -2065,8 +2025,12 @@ h2 {
   .job-type {
     display: none;
   }
-  .github-section h2 {
-    font-size: 31px;
+  .github-inline-layout {
+    grid-template-columns: minmax(210px, 0.75fr) minmax(0, 1.25fr);
+    gap: 28px;
+  }
+  .github-inline-copy h2 {
+    font-size: 27px;
   }
   .github-panel {
     padding: 21px;
@@ -2256,30 +2220,6 @@ h2 {
   }
   .hero-bottom a {
     gap: 8px;
-  }
-  .metrics-inner {
-    gap: 12px;
-    padding-block: 22px;
-    grid-template-columns: 1fr 1fr 1.25fr;
-  }
-  .metric {
-    gap: 8px;
-    padding-right: 9px;
-  }
-  .metric > strong {
-    font-size: 26px;
-    letter-spacing: -1px;
-  }
-  .metric > strong > span {
-    font-size: 18px;
-  }
-  .metric:last-of-type > strong {
-    font-size: 23px;
-  }
-  .metric > span {
-    font-size: 8px;
-    line-height: 1.65;
-    max-width: 99px;
   }
   .section {
     padding-block: 61px;
@@ -2518,11 +2458,14 @@ h2 {
     margin-bottom: 25px;
     padding-bottom: 27px;
   }
-  .github-section .section-heading {
-    flex-wrap: wrap;
-    gap: 21px;
+  .github-inline-block {
+    padding: 45px 0;
   }
-  .github-section h2 {
+  .github-inline-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .github-inline-copy h2 {
     font-size: 30px;
   }
   .github-link {
@@ -2544,8 +2487,8 @@ h2 {
     font-size: 6px;
     padding: 5px 6px;
   }
-  .contribution-placeholder {
-    height: 186px;
+  .github-panel-inline .contribution-placeholder {
+    height: 160px;
     margin-top: 12px;
   }
   .contribution-grid {
@@ -2669,12 +2612,6 @@ h2 {
     padding-left: 11px;
   }
   .hero-eyebrow {
-    font-size: 7px;
-  }
-  .metric > strong {
-    font-size: 23px;
-  }
-  .metric > span {
     font-size: 7px;
   }
   .email-group > a {

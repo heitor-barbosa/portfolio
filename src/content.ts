@@ -28,11 +28,6 @@ export const content = {
     visualTop: "IDEIAS → SISTEMAS",
     visualBottom: "CONSTRUÍDO COM PROPÓSITO",
     visualLabels: ["Interfaces", "Sistemas", "Inteligência"],
-    stats: [
-      "clientes na plataforma de conciliação",
-      "clientes com coleta automatizada",
-      "carregamento de uma tela crítica",
-    ],
     aboutLabel: "01 / SOBRE MIM",
     aboutTitle: "Entre a lógica",
     aboutAccent: "e a possibilidade.",
@@ -139,7 +134,6 @@ export const content = {
         current: false,
       },
     ],
-    githubLabel: "04 / ALÉM DO PORTFÓLIO",
     githubTitle: "Um commit de cada vez.",
     githubText:
       "Ideias, experimentos e aprendizado contínuo. Meu trabalho também acontece por aqui.",
@@ -151,7 +145,7 @@ export const content = {
     githubContributions: "contribuições",
     githubNote:
       "O gráfico será exibido aqui quando a integração estiver conectada.",
-    contactLabel: "05 / VAMOS CONVERSAR",
+    contactLabel: "04 / VAMOS CONVERSAR",
     contactTitle: "Boas ideias merecem",
     contactAccent: "sair do papel.",
     contactText:
@@ -196,11 +190,6 @@ export const content = {
     visualTop: "IDEAS → SYSTEMS",
     visualBottom: "BUILT WITH PURPOSE",
     visualLabels: ["Interfaces", "Systems", "Intelligence"],
-    stats: [
-      "clients on the reconciliation platform",
-      "clients with automated collection",
-      "load time for a critical screen",
-    ],
     aboutLabel: "01 / ABOUT ME",
     aboutTitle: "Between logic",
     aboutAccent: "and possibility.",
@@ -307,7 +296,6 @@ export const content = {
         current: false,
       },
     ],
-    githubLabel: "04 / BEYOND THE PORTFOLIO",
     githubTitle: "One commit at a time.",
     githubText:
       "Ideas, experiments, and continuous learning. My work happens here, too.",
@@ -317,7 +305,7 @@ export const content = {
     githubBadge: "INTEGRATION COMING SOON",
     githubContributions: "contributions",
     githubNote: "The graph will appear here once the integration is connected.",
-    contactLabel: "05 / LET’S TALK",
+    contactLabel: "04 / LET’S TALK",
     contactTitle: "Good ideas deserve",
     contactAccent: "to become real.",
     contactText:
