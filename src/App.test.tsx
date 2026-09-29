@@ -1,8 +1,9 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import App from "./App";
 import { profile } from "./content";
+import { successfulContributionResponse } from "./test/setup";
 
 describe("Portfolio visitor flows", () => {
   it("switches the content and document language, and retains the preference after remount", async () => {
@@ -113,7 +114,7 @@ describe("Portfolio visitor flows", () => {
     expect(screen.getByRole("status")).toHaveTextContent("E-mail copiado!");
   });
 
-  it("exposes a downloadable resume, real profile links and an honest GitHub placeholder", () => {
+  it("exposes a downloadable resume, real profile links and live GitHub contributions", async () => {
     render(<App />);
     for (const link of screen.getAllByRole("link", {
       name: "Baixar currículo",
@@ -126,14 +127,41 @@ describe("Portfolio visitor flows", () => {
       screen.getByRole("link", { name: "Explorar GitHub" }),
     ).toHaveAttribute("href", profile.github);
     expect(
-      screen.getByText(
-        "Espaço reservado para meu histórico de contribuições do GitHub.",
-      ),
+      await screen.findByText("12 contribuições nos últimos 12 meses."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("img", {
+        name: "12 contribuições nos últimos 12 meses.",
+      }),
     ).toBeInTheDocument();
     for (const link of screen
       .getAllByRole("link")
       .filter((link) => link.getAttribute("target") === "_blank")) {
       expect(link).toHaveAttribute("rel", "noreferrer");
     }
+  });
+
+  it("keeps the GitHub profile available and retries after an API failure", async () => {
+    const user = userEvent.setup();
+    vi.mocked(fetch).mockRejectedValueOnce(new Error("GitHub unavailable"));
+
+    render(<App />);
+
+    expect(
+      await screen.findByText("GitHub indisponível agora."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Explorar GitHub" }),
+    ).toHaveAttribute("href", profile.github);
+
+    vi.mocked(fetch).mockResolvedValueOnce(successfulContributionResponse());
+    await user.click(screen.getByRole("button", { name: "Tentar novamente" }));
+
+    expect(
+      await screen.findByText("12 contribuições nos últimos 12 meses."),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByText("GitHub indisponível agora."),
+    ).not.toBeInTheDocument();
   });
 });

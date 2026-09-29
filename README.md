@@ -23,7 +23,8 @@ O resultado está em `dist/`. A configuração de caminhos relativos permite ser
 ## Personalização
 
 - `src/content.ts`: textos dos dois idiomas, projetos, trajetória, contatos e links.
-- `src/App.tsx`: componentes e interações. `GitHubActivity` contém o espaço reservado às contribuições.
+- `src/App.tsx`: componentes e interações, incluindo o calendário de contribuições.
+- `api/github-contributions.ts`: função serverless que consulta a API GraphQL do GitHub sem expor o token.
 - `src/styles.css`: identidade visual, cores por tema, animações e breakpoints.
 - `public/curriculo-heitor-barbosa.pdf`: cópia do PDF original para download. O arquivo continua em português, inclusive na interface em inglês, com essa informação no link.
 
@@ -31,9 +32,17 @@ Idioma e tema ficam salvos no `localStorage`. A primeira visita usa português e
 
 ## Histórico do GitHub
 
-O espaço reservado está identificado como **integração em breve** e já aponta para [heitor-barbosa](https://github.com/heitor-barbosa/). As células neutras são decorativas: não representam commits e não há números de contribuições inventados. Nenhuma API é chamada no navegador.
+O calendário consulta as contribuições públicas de [heitor-barbosa](https://github.com/heitor-barbosa/) por meio da função serverless `/api/github-contributions`. O token fica somente no servidor e nunca é incluído no JavaScript enviado ao navegador.
 
-Para ativar o histórico, substitua o conteúdo de `GitHubActivity` por dados verificados de contribuições. Se a integração exigir autenticação, consulte o GitHub em um backend ou em uma etapa de build e entregue apenas os dados públicos necessários ao frontend. Não coloque um token em variáveis `VITE_*`, pois elas são incluídas no código público.
+Para ativar a integração:
+
+1. Crie um token no GitHub. Para exibir apenas atividade pública, não é necessário conceder acesso de escrita nem acesso a repositórios privados.
+2. Na Vercel, abra **Settings → Environment Variables** e crie `GITHUB_TOKEN` para os ambientes Production e Preview.
+3. Faça um novo deploy para a função receber a variável.
+
+Para testar a função e o frontend juntos localmente, crie um arquivo `.env.local` com `GITHUB_TOKEN=...` e execute `npx vercel dev`. Os arquivos `.env*` locais são ignorados pelo Git; `.env.example` documenta apenas o nome da variável. Nunca use o prefixo `VITE_` para esse token.
+
+Se o GitHub estiver indisponível, o CDN da Vercel pode reutilizar uma resposta válida anterior por até 24 horas. O navegador também guarda o último calendário válido por sete dias. Sem nenhum cache, o site mostra uma mensagem discreta, mantém o link direto para o perfil e oferece o botão **Tentar novamente**; o restante do portfólio continua funcionando.
 
 ## Conteúdo e referências visuais
 
@@ -52,7 +61,7 @@ npm test
 npm run build
 ```
 
-Os testes verificam troca e persistência de idioma e tema, detalhes dos projetos, fechamento do menu, cópia de e-mail e destinos dos links. Os testes em jsdom não substituem inspeção visual em navegador. `npm run format` formata o código com Prettier.
+Os testes verificam troca e persistência de idioma e tema, detalhes dos projetos, fechamento do menu, cópia de e-mail, destinos dos links e os estados de sucesso e falha da integração com o GitHub. Os testes em jsdom não substituem inspeção visual em navegador. `npm run format` formata o código com Prettier.
 
 ## Integração contínua
 

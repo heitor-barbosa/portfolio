@@ -29,6 +29,12 @@ import {
   X,
 } from "lucide-react";
 import { content, profile, type Copy, type Language } from "./content";
+import {
+  cacheContributions,
+  fetchContributions,
+  readCachedContributions,
+  type ContributionCalendar,
+} from "./github";
 
 const sectionIds = ["sobre", "projetos", "experiencia", "contato"];
 const toolbox = [
@@ -391,9 +397,61 @@ function ProjectDialog({
   );
 }
 
-function GitHubActivity({ t }: { t: Copy }) {
-  // Replace this intentionally empty placeholder with a verified contributions provider.
-  // Never expose a GitHub access token in client-side code.
+function GitHubActivity({ t, lang }: { t: Copy; lang: Language }) {
+  const [calendar, setCalendar] = useState<ContributionCalendar | null>(null);
+  const [status, setStatus] = useState<"loading" | "live" | "cached" | "error">(
+    "loading",
+  );
+  const [retry, setRetry] = useState(0);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const cached = readCachedContributions();
+    if (cached) {
+      setCalendar(cached);
+      setStatus("cached");
+    } else {
+      setStatus("loading");
+    }
+
+    fetchContributions(controller.signal)
+      .then((result) => {
+        cacheContributions(result);
+        setCalendar(result);
+        setStatus("live");
+      })
+      .catch(() => {
+        if (controller.signal.aborted) return;
+        const fallback = readCachedContributions();
+        if (fallback) {
+          setCalendar(fallback);
+          setStatus("cached");
+        } else {
+          setCalendar(null);
+          setStatus("error");
+        }
+      });
+
+    return () => controller.abort();
+  }, [retry]);
+
+  const days = calendar?.weeks.flatMap((week) => week.contributionDays);
+  const statusText =
+    status === "live"
+      ? t.githubBadge
+      : status === "cached"
+        ? t.githubCachedBadge
+        : status === "error"
+          ? t.githubUnavailableBadge
+          : t.githubLoadingBadge;
+  const graphLabel = calendar
+    ? `${calendar.totalContributions} ${t.githubTotalSuffix}`
+    : t.githubGraphLabel;
+  const dateFormatter = new Intl.DateTimeFormat(
+    lang === "pt" ? "pt-BR" : "en-US",
+    { day: "numeric", month: "short", year: "numeric" },
+  );
+
   return (
     <aside className="github-inline-block" aria-labelledby="github-heading">
       <div className="container github-inline-layout">
@@ -420,25 +478,61 @@ function GitHubActivity({ t }: { t: Copy }) {
               <strong>heitor-barbosa</strong>
               <span className="muted">/ {t.githubContributions}</span>
             </span>
-            <span className="integration-label">
+            <span className="integration-label" data-status={status}>
               <span className="status-dot" />
-              {t.githubBadge}
+              {statusText}
             </span>
           </div>
-          <div className="contribution-placeholder">
-            <div className="contribution-grid" aria-hidden="true">
-              {Array.from({ length: 364 }, (_, i) => (
-                <i key={i} />
-              ))}
+          <div
+            className="contribution-placeholder"
+            aria-busy={status === "loading"}
+          >
+            <div
+              className={`contribution-grid ${days ? "has-data" : "is-placeholder"}`}
+              role="img"
+              aria-label={graphLabel}
+            >
+              {days
+                ? days.map((day) => (
+                    <i
+                      key={day.date}
+                      data-level={day.contributionLevel}
+                      title={`${day.contributionCount} ${t.githubContributions} · ${dateFormatter.format(new Date(`${day.date}T12:00:00`))}`}
+                      aria-hidden="true"
+                    />
+                  ))
+                : Array.from({ length: 371 }, (_, i) => (
+                    <i key={i} aria-hidden="true" />
+                  ))}
             </div>
-            <div className="contribution-message">
-              <GitBranch size={24} />
-              <h3>{t.githubReserved}</h3>
-              <p>{t.githubPlaceholder}</p>
-            </div>
+            {status === "loading" && (
+              <div className="contribution-message" role="status">
+                <GitBranch size={24} />
+                <h3>{t.githubLoadingTitle}</h3>
+              </div>
+            )}
+            {status === "error" && (
+              <div className="contribution-message" role="status">
+                <GitBranch size={24} />
+                <h3>{t.githubErrorTitle}</h3>
+                <p>{t.githubErrorText}</p>
+                <button
+                  className="github-retry"
+                  onClick={() => setRetry((value) => value + 1)}
+                >
+                  {t.githubRetry}
+                </button>
+              </div>
+            )}
           </div>
           <div className="github-panel-bottom">
-            <span>{t.githubNote}</span>
+            <span>
+              {calendar
+                ? status === "cached"
+                  ? t.githubCachedNote
+                  : `${calendar.totalContributions} ${t.githubTotalSuffix}`
+                : t.githubNote}
+            </span>
             <span className="empty-legend" aria-hidden="true">
               <i />
               <i />
@@ -682,7 +776,7 @@ export default function App() {
             </a>
           </div>
         </section>
-        <GitHubActivity t={t} />
+        <GitHubActivity t={t} lang={lang} />
         <div className="container">
           <section
             className="section about-section"

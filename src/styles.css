@@ -1394,6 +1394,13 @@ h2 {
   width: 4px;
   background: var(--subtle);
 }
+.integration-label[data-status="live"] .status-dot {
+  background: var(--accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.integration-label[data-status="error"] .status-dot {
+  background: #d77a68;
+}
 .contribution-placeholder {
   position: relative;
   height: 186px;
@@ -1407,6 +1414,9 @@ h2 {
   grid-template-rows: repeat(7, 1fr);
   grid-auto-flow: column;
   gap: 4px;
+  opacity: 1;
+}
+.contribution-grid.is-placeholder {
   mask-image: linear-gradient(
     90deg,
     #000,
@@ -1414,13 +1424,29 @@ h2 {
     transparent 62%,
     #000
   );
-  opacity: 0.8;
+  opacity: 0.55;
 }
 .contribution-grid > i {
   aspect-ratio: 1;
   background: var(--grid);
   border: 1px solid var(--border);
   border-radius: 2px;
+}
+.contribution-grid > i[data-level="FIRST_QUARTILE"] {
+  background: color-mix(in srgb, var(--accent) 28%, var(--grid));
+  border-color: color-mix(in srgb, var(--accent) 24%, var(--border));
+}
+.contribution-grid > i[data-level="SECOND_QUARTILE"] {
+  background: color-mix(in srgb, var(--accent) 48%, var(--grid));
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
+}
+.contribution-grid > i[data-level="THIRD_QUARTILE"] {
+  background: color-mix(in srgb, var(--accent) 72%, var(--grid));
+  border-color: color-mix(in srgb, var(--accent) 68%, var(--border));
+}
+.contribution-grid > i[data-level="FOURTH_QUARTILE"] {
+  background: var(--accent);
+  border-color: var(--accent);
 }
 .contribution-message {
   position: absolute;
@@ -1446,6 +1472,22 @@ h2 {
   color: var(--muted);
   margin-top: 8px;
   max-width: 320px;
+}
+.github-retry {
+  margin-top: 13px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--text);
+  font: 8px var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+}
+.github-retry:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 .github-panel-bottom {
   display: flex;
@@ -2496,6 +2538,9 @@ h2 {
     min-width: 700px;
     gap: 3px;
     transform: translateX(-175px);
+    opacity: 1;
+  }
+  .contribution-grid.is-placeholder {
     mask-image: linear-gradient(
       90deg,
       #000,
