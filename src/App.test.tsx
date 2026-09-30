@@ -10,11 +10,11 @@ describe("Portfolio visitor flows", () => {
     const user = userEvent.setup();
     const { unmount } = render(<App />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Código que resolve.",
+      "Engenheiro de Software.",
     );
     await user.click(screen.getByRole("button", { name: "English" }));
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Code that solves.",
+      "Software Engineer.",
     );
     expect(
       screen.getByRole("heading", { name: "One commit at a time." }),

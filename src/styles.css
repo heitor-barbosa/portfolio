@@ -97,12 +97,23 @@ button {
 main:focus {
   outline: none;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .container {
   width: min(1200px, calc(100% - 112px));
   margin-inline: auto;
 }
 .eyebrow {
-  font: 10px var(--font-mono);
+  font: 14px var(--font-mono);
   letter-spacing: 1.7px;
   color: var(--muted);
   display: inline-flex;
@@ -151,7 +162,7 @@ main:focus {
   top: 10px;
 }
 .header {
-  height: 88px;
+  height: 96px;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -169,7 +180,7 @@ main:focus {
   gap: 24px;
 }
 .wordmark {
-  font-size: 29px;
+  font-size: 34px;
   letter-spacing: -1.8px;
   font-weight: 800;
 }
@@ -184,7 +195,7 @@ main:focus {
   height: 100%;
 }
 .nav a {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--muted);
   height: 100%;
   display: flex;
@@ -215,7 +226,7 @@ main:focus {
   display: flex;
   align-items: center;
   gap: 8px;
-  font: 10px var(--font-mono);
+  font: 14px var(--font-mono);
 }
 .language-switch button {
   color: var(--muted);
@@ -240,7 +251,7 @@ main:focus {
   border: 1px solid var(--border);
   padding: 10px 15px;
   border-radius: 5px;
-  font-size: 11px;
+  font-size: 15px;
   margin-left: 4px;
   transition: border-color 0.2s;
 }
@@ -254,49 +265,54 @@ main:focus {
   position: relative;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  min-height: calc(100svh - 96px);
   gap: 24px;
-  padding-top: 81px;
+  padding-top: 36px;
   padding-bottom: 34px;
 }
-.hero-eyebrow {
-  font-size: 9px;
-  letter-spacing: 1.4px;
-}
 .hello {
-  font-size: 14px;
+  font-size: 20px;
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 15px;
   margin-top: 35px;
   margin-bottom: 15px;
   color: var(--muted);
 }
 .hello-line {
   display: block;
-  width: 32px;
+  width: 40px;
   height: 1px;
   background: var(--subtle);
 }
 h1 {
-  font-size: clamp(43px, 4.25vw, 62px);
+  font-size: clamp(48px, 4.7vw, 70px);
   line-height: 1.13;
   font-weight: 500;
   letter-spacing: -3px;
+  min-height: 2.26em;
 }
-h1 > span {
+.hero-copy .hello,
+.hero-copy h1 {
+  transform: translateY(-70px);
+}
+.typewriter-accent {
   color: var(--accent);
 }
-.hero-description {
-  font-size: 13px;
-  line-height: 1.9;
-  color: var(--muted);
-  max-width: 390px;
-  margin-top: 23px;
+.typewriter-cursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.88em;
+  margin-left: 0.08em;
+  vertical-align: -0.06em;
+  background: var(--accent);
+  animation: cursor-blink 0.8s steps(1, end) infinite;
 }
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 30px;
   margin-top: 29px;
 }
 .button {
@@ -305,7 +321,7 @@ h1 > span {
   justify-content: center;
   gap: 22px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   padding: 15px 19px;
   min-height: 46px;
@@ -313,6 +329,12 @@ h1 > span {
     transform 0.2s,
     background 0.2s,
     border-color 0.2s;
+}
+.hero .button {
+  gap: 24px;
+  font-size: 17px;
+  padding: 18px 24px;
+  min-height: 56px;
 }
 .button:hover {
   transform: translateY(-2px);
@@ -334,9 +356,17 @@ h1 > span {
 .resume-link {
   display: flex;
   align-items: center;
-  gap: 11px;
-  font-size: 11px;
+  gap: 12px;
+  font-size: 17px;
   color: var(--muted);
+}
+.hero .button svg {
+  width: 21px;
+  height: 21px;
+}
+.resume-link svg {
+  width: 19px;
+  height: 19px;
 }
 .resume-link:hover {
   color: var(--text);
@@ -344,9 +374,9 @@ h1 > span {
 .hero-meta {
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 15px;
   margin-top: 34px;
-  font: 9px var(--font-mono);
+  font: 15px var(--font-mono);
   color: var(--muted);
 }
 .hero-meta > span:first-child {
@@ -354,12 +384,20 @@ h1 > span {
   align-items: center;
   gap: 6px;
 }
+.hero-meta > span:first-child svg {
+  width: 16px;
+  height: 16px;
+}
 .hero-socials {
   display: flex;
-  gap: 15px;
+  gap: 17px;
   border-left: 1px solid var(--border);
   margin-left: 3px;
   padding-left: 18px;
+}
+.hero-socials svg {
+  width: 20px;
+  height: 20px;
 }
 .hero-socials a:hover {
   color: var(--accent);
@@ -375,60 +413,6 @@ h1 > span {
     color-mix(in srgb, var(--accent) 4%, transparent),
     transparent 68%
   );
-}
-.visual-top,
-.visual-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font: 8px var(--font-mono);
-  letter-spacing: 1.4px;
-  color: var(--subtle);
-  position: absolute;
-  left: 24px;
-  right: 13px;
-}
-.visual-top {
-  top: 10px;
-}
-.visual-top > span {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-.visual-top .status-dot {
-  width: 4px;
-  height: 4px;
-}
-.visual-bottom {
-  bottom: 5px;
-}
-.signal {
-  height: 10px;
-  display: flex;
-  gap: 3px;
-  align-items: end;
-}
-.signal i {
-  display: block;
-  width: 3px;
-  background: var(--subtle);
-}
-.signal i:nth-child(1) {
-  height: 3px;
-}
-.signal i:nth-child(2) {
-  height: 5px;
-}
-.signal i:nth-child(3) {
-  height: 8px;
-}
-.signal i:nth-child(4) {
-  height: 6px;
-}
-.signal i:nth-child(5) {
-  height: 10px;
-  background: var(--accent);
 }
 .orbital-scene {
   position: relative;
@@ -530,24 +514,6 @@ h1 > span {
   right: 0;
   top: 224px;
 }
-.hero-bottom {
-  grid-column: 1/-1;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 43px;
-  color: var(--subtle);
-  font: 8px var(--font-mono);
-  letter-spacing: 1.3px;
-}
-.hero-bottom a {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  letter-spacing: 0.3px;
-}
-.hero-bottom a:hover {
-  color: var(--accent);
-}
 .section {
   padding: 96px 0;
   border-bottom: 1px solid var(--border);
@@ -565,51 +531,10 @@ h2 {
   gap: 110px;
 }
 .about-lead {
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.65;
   max-width: 395px;
   margin-top: 25px;
-}
-.body-copy {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.95;
-  margin-top: 15px;
-}
-.education {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin-top: 26px;
-  border-top: 1px solid var(--border);
-  padding-top: 22px;
-}
-.education > svg:first-child {
-  color: var(--accent);
-}
-.education > svg:last-child {
-  margin-left: auto;
-  color: var(--subtle);
-}
-.education strong {
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-.education div > span {
-  font-size: 10px;
-  color: var(--muted);
-}
-.education-date {
-  white-space: nowrap;
-}
-.language-note {
-  display: block;
-  color: var(--muted);
-  font: 9px var(--font-mono);
-  margin-top: 18px;
-  padding-left: 35px;
 }
 .toolbox {
   background: var(--surface);
@@ -629,7 +554,7 @@ h2 {
   color: var(--accent);
 }
 .toolbox-title .eyebrow {
-  font-size: 9px;
+  font-size: 13px;
   letter-spacing: 1px;
 }
 .toolbox-dots {
@@ -656,7 +581,7 @@ h2 {
   padding-top: 4px;
 }
 .toolbox h3 {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 12px;
 }
@@ -666,7 +591,7 @@ h2 {
   gap: 6px;
 }
 .tags > span {
-  font: 9px var(--font-mono);
+  font: 13px var(--font-mono);
   color: var(--muted);
   padding: 6px 8px;
   border: 1px solid var(--border);
@@ -679,7 +604,7 @@ h2 {
   align-items: center;
   gap: 10px;
   color: var(--subtle);
-  font: 9px var(--font-mono);
+  font: 13px var(--font-mono);
 }
 .toolbox-bottom strong {
   color: var(--accent);
@@ -693,7 +618,7 @@ h2 {
   margin-bottom: 35px;
 }
 .section-side-note {
-  font-size: 11px;
+  font-size: 15px;
   color: var(--muted);
   max-width: 190px;
   line-height: 1.9;
@@ -1151,7 +1076,7 @@ h2 {
   flex: 1;
 }
 .project-category {
-  font: 7px var(--font-mono);
+  font: 12px var(--font-mono);
   letter-spacing: 0.7px;
   color: var(--muted);
   display: flex;
@@ -1162,7 +1087,7 @@ h2 {
   color: var(--subtle);
 }
 .project-copy h3 {
-  font-size: 17px;
+  font-size: 22px;
   letter-spacing: -0.5px;
   font-weight: 600;
   line-height: 1.5;
@@ -1175,7 +1100,7 @@ h2 {
   color: var(--accent);
 }
 .project-copy p {
-  font-size: 11px;
+  font-size: 16px;
   line-height: 1.9;
   color: var(--muted);
   margin-top: 9px;
@@ -1187,7 +1112,7 @@ h2 {
   gap: 5px;
 }
 .project-tags > span {
-  font-size: 7px;
+  font-size: 12px;
   padding: 5px 6px;
 }
 .project-card-bottom {
@@ -1198,7 +1123,7 @@ h2 {
   padding-block: 15px;
   margin-top: auto;
   color: var(--muted);
-  font-size: 8px;
+  font-size: 13px;
   gap: 7px;
 }
 .project-card-bottom strong {
@@ -1231,7 +1156,7 @@ h2 {
   gap: 95px;
 }
 .section-description {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.9;
   color: var(--muted);
   margin-top: 17px;
@@ -1281,12 +1206,12 @@ h2 {
   justify-content: space-between;
   gap: 12px;
   color: var(--muted);
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
   letter-spacing: 0.5px;
 }
 .job-type {
   color: var(--subtle);
-  font-size: 7px;
+  font-size: 11px;
 }
 .timeline h3 {
   font-size: 20px;
@@ -1295,20 +1220,20 @@ h2 {
   margin-top: 17px;
 }
 .timeline h4 {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--accent);
   margin-top: 7px;
 }
 .timeline p {
-  font-size: 11px;
+  font-size: 16px;
   line-height: 1.9;
   color: var(--muted);
   max-width: 450px;
   margin-top: 12px;
 }
 .research-tag {
-  font: 7px var(--font-mono);
+  font: 12px var(--font-mono);
   letter-spacing: 0.6px;
   display: inline-flex;
   align-items: center;
@@ -1370,16 +1295,16 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
+  font-size: 15px;
 }
 .github-panel-top strong {
   font-weight: 500;
 }
 .github-panel-top > span > .muted {
-  font: 9px var(--font-mono);
+  font: 13px var(--font-mono);
 }
 .integration-label {
-  font: 7px var(--font-mono);
+  font: 12px var(--font-mono);
   letter-spacing: 0.7px;
   color: var(--muted);
   display: flex;
@@ -1467,7 +1392,7 @@ h2 {
   letter-spacing: -0.3px;
 }
 .contribution-message p {
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--muted);
   margin-top: 8px;
@@ -1480,7 +1405,7 @@ h2 {
   border-radius: 3px;
   background: var(--surface);
   color: var(--text);
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.7px;
   cursor: pointer;
@@ -1495,7 +1420,7 @@ h2 {
   align-items: center;
   gap: 15px;
   color: var(--subtle);
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
 }
 .empty-legend {
   display: flex;
@@ -1543,7 +1468,7 @@ h2 {
 }
 .contact-main p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.9;
   max-width: 395px;
   margin-top: 25px;
@@ -1578,7 +1503,6 @@ h2 {
   gap: 30px;
   margin-top: 43px;
   padding-top: 28px;
-  border-top: 1px solid var(--border);
 }
 .email-group {
   position: relative;
@@ -1615,7 +1539,7 @@ h2 {
   gap: 26px;
 }
 .contact-socials > a {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
   display: flex;
   align-items: center;
@@ -1636,14 +1560,14 @@ h2 {
   font-size: 24px;
 }
 .footer > span {
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
   color: var(--subtle);
 }
 .footer-dot {
   margin: 0 10px;
 }
 .back-top {
-  font-size: 9px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -1678,7 +1602,7 @@ h2 {
 }
 .dialog-inner > .project-category {
   color: var(--accent);
-  font-size: 9px;
+  font-size: 12px;
 }
 .dialog-inner h2 {
   font-size: 32px;
@@ -1691,7 +1615,7 @@ h2 {
 }
 .dialog-inner > p {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 17px;
   line-height: 1.9;
   margin-top: 12px;
 }
@@ -1703,7 +1627,7 @@ h2 {
 .result-list li {
   display: flex;
   gap: 12px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.85;
   color: var(--muted);
   margin-bottom: 12px;
@@ -1723,11 +1647,11 @@ h2 {
   align-items: center;
 }
 .dialog-footer > span {
-  font: 8px var(--font-mono);
+  font: 12px var(--font-mono);
   color: var(--subtle);
 }
 .text-link {
-  font-size: 10px;
+  font-size: 14px;
   display: inline-flex;
   gap: 9px;
   align-items: center;
@@ -1747,18 +1671,20 @@ h2 {
     translate: 0 -7px;
   }
 }
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
 
 /* Responsive rules follow the base styles to keep the cascade predictable. */
 @media (min-width: 1500px) {
   .hero {
-    padding-top: 100px;
+    padding-top: 48px;
     padding-bottom: 40px;
   }
   .hero-visual {
     height: 465px;
-  }
-  .hero-bottom {
-    margin-top: 65px;
   }
 }
 @media (max-width: 1150px) {
@@ -1773,12 +1699,12 @@ h2 {
     display: none;
   }
   h1 {
-    font-size: 49px;
+    font-size: 55px;
     letter-spacing: -2.5px;
   }
   .hero {
     gap: 18px;
-    padding-top: 65px;
+    padding-top: 36px;
   }
   .hero-visual {
     height: 385px;
@@ -1865,54 +1791,52 @@ h2 {
     width: calc(100% - 48px);
   }
   .header {
-    height: 76px;
+    height: 84px;
   }
   .nav {
     gap: 18px;
     margin-left: 0;
   }
   .nav a {
-    font-size: 11px;
+    font-size: 15px;
   }
   .header-controls {
     gap: 8px;
   }
   .hero {
-    padding-top: 54px;
+    min-height: calc(100svh - 84px);
+    padding-top: 30px;
     grid-template-columns: 1.2fr 1fr;
     gap: 0;
   }
   h1 {
-    font-size: 42px;
+    font-size: 47px;
     letter-spacing: -2px;
   }
-  .hero-eyebrow {
-    font-size: 7px;
-    letter-spacing: 1px;
-  }
-  .hero-description {
-    font-size: 12px;
-    max-width: 320px;
-  }
   .hello {
-    font-size: 12px;
+    font-size: 18px;
     margin-top: 29px;
   }
   .hero-actions {
-    gap: 16px;
+    gap: 18px;
   }
   .button {
-    font-size: 10px;
+    font-size: 14px;
     padding: 13px 14px;
     gap: 13px;
   }
+  .hero .button {
+    font-size: 16px;
+    padding: 15px 17px;
+    gap: 15px;
+  }
   .resume-link {
-    font-size: 10px;
-    gap: 7px;
+    font-size: 16px;
+    gap: 9px;
   }
   .hero-meta {
-    font-size: 8px;
-    gap: 8px;
+    font-size: 13px;
+    gap: 9px;
   }
   .hero-socials {
     padding-left: 11px;
@@ -1938,11 +1862,6 @@ h2 {
   .tag-ai {
     bottom: 46px;
   }
-  .visual-top,
-  .visual-bottom {
-    font-size: 6px;
-    left: 15px;
-  }
   .coordinate {
     display: none;
   }
@@ -1956,9 +1875,6 @@ h2 {
   .core-slash {
     font-size: 39px;
   }
-  .hero-bottom {
-    margin-top: 40px;
-  }
   .section {
     padding-block: 75px;
   }
@@ -1971,14 +1887,11 @@ h2 {
   .about-lead {
     font-size: 15px;
   }
-  .body-copy {
-    font-size: 11px;
-  }
   .toolbox-title {
     padding: 18px 16px;
   }
   .toolbox-title .eyebrow {
-    font-size: 8px;
+    font-size: 12px;
   }
   .toolbox-group {
     gap: 12px;
@@ -1986,7 +1899,7 @@ h2 {
     padding-block: 18px;
   }
   .tags > span {
-    font-size: 8px;
+    font-size: 12px;
     padding: 5px 6px;
   }
   .project-grid {
@@ -2016,10 +1929,10 @@ h2 {
     font-size: 18px;
   }
   .project-copy p {
-    font-size: 11px;
+    font-size: 15px;
   }
   .project-tags > span {
-    font-size: 7px;
+    font-size: 11px;
   }
   .finance-window {
     height: 200px;
@@ -2062,7 +1975,7 @@ h2 {
     font-size: 18px;
   }
   .timeline-meta {
-    font-size: 7px;
+    font-size: 11px;
   }
   .job-type {
     display: none;
@@ -2081,7 +1994,7 @@ h2 {
     gap: 3px;
   }
   .contribution-message p {
-    font-size: 9px;
+    font-size: 13px;
     max-width: 240px;
   }
   .github-panel-top > span > .muted {
@@ -2102,7 +2015,7 @@ h2 {
     gap: 15px;
   }
   .email-group > a {
-    font-size: 14px;
+    font-size: 18px;
   }
   .footer-note {
     display: none;
@@ -2113,20 +2026,20 @@ h2 {
 }
 @media (max-width: 650px) {
   html {
-    scroll-padding-top: 88px;
+    scroll-padding-top: 98px;
   }
   .container {
     width: calc(100% - 40px);
   }
   .header {
-    height: 70px;
+    height: 80px;
   }
   .header-inner {
     width: calc(100% - 40px);
     gap: 10px;
   }
   .wordmark {
-    font-size: 27px;
+    font-size: 31px;
   }
   .header-controls {
     gap: 8px;
@@ -2142,7 +2055,7 @@ h2 {
     position: absolute;
     left: 0;
     right: 0;
-    top: 69px;
+    top: 79px;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
     height: auto;
@@ -2156,7 +2069,7 @@ h2 {
     gap: 0;
   }
   .nav a {
-    font-size: 14px;
+    font-size: 18px;
     padding: 15px 8px;
     height: auto;
   }
@@ -2167,44 +2080,41 @@ h2 {
   }
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 40px;
+    min-height: calc(100svh - 80px);
+    padding-top: 24px;
     padding-bottom: 24px;
     gap: 0;
   }
-  .hero-eyebrow {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
   .hello {
     margin-top: 30px;
-    font-size: 13px;
+    font-size: 18px;
     margin-bottom: 15px;
   }
   h1 {
-    font-size: clamp(38px, 8.3vw, 54px);
+    font-size: clamp(40px, 9vw, 56px);
     letter-spacing: -2px;
     line-height: 1.15;
   }
-  .hero-description {
-    font-size: 12px;
-    max-width: 370px;
-    margin-top: 23px;
-  }
   .hero-actions {
     margin-top: 25px;
-    gap: 23px;
+    gap: 20px;
   }
   .button {
-    font-size: 11px;
+    font-size: 15px;
     min-height: 45px;
     padding: 13px 16px;
   }
+  .hero .button {
+    font-size: 16px;
+    min-height: 50px;
+    padding: 15px 18px;
+  }
   .resume-link {
-    font-size: 11px;
-    gap: 8px;
+    font-size: 16px;
+    gap: 9px;
   }
   .hero-meta {
-    font-size: 9px;
+    font-size: 13px;
     gap: 12px;
     margin-top: 25px;
   }
@@ -2216,12 +2126,6 @@ h2 {
     margin: 26px auto 0;
     height: 335px;
     width: min(100%, 390px);
-  }
-  .visual-top {
-    top: 6px;
-  }
-  .visual-bottom {
-    bottom: 0;
   }
   .orbit-tag {
     font-size: 9px;
@@ -2249,20 +2153,6 @@ h2 {
   .core-slash {
     font-size: 46px;
   }
-  .visual-top,
-  .visual-bottom {
-    font-size: 7px;
-    left: 10px;
-    right: 10px;
-  }
-  .hero-bottom {
-    margin-top: 25px;
-    font-size: 6px;
-    letter-spacing: 0.7px;
-  }
-  .hero-bottom a {
-    gap: 8px;
-  }
   .section {
     padding-block: 61px;
   }
@@ -2271,7 +2161,7 @@ h2 {
     gap: 33px;
   }
   .eyebrow {
-    font-size: 8px;
+    font-size: 12px;
     letter-spacing: 1.5px;
   }
   h2 {
@@ -2284,24 +2174,11 @@ h2 {
     max-width: 360px;
     margin-top: 23px;
   }
-  .body-copy {
-    font-size: 12px;
-    line-height: 1.9;
-  }
-  .education {
-    margin-top: 23px;
-  }
-  .education strong {
-    font-size: 12px;
-  }
-  .education div > span {
-    font-size: 10px;
-  }
   .toolbox-title {
     padding: 19px;
   }
   .toolbox-title .eyebrow {
-    font-size: 9px;
+    font-size: 13px;
   }
   .toolbox-group {
     margin-inline: 20px;
@@ -2309,10 +2186,10 @@ h2 {
     padding-block: 20px;
   }
   .toolbox h3 {
-    font-size: 13px;
+    font-size: 16px;
   }
   .toolbox .tags > span {
-    font-size: 9px;
+    font-size: 13px;
     padding: 6px 8px;
   }
   .toolbox-bottom {
@@ -2347,14 +2224,14 @@ h2 {
     padding: 24px 22px 0;
   }
   .project-category {
-    font-size: 8px;
+    font-size: 12px;
   }
   .project-copy h3 {
     font-size: 21px;
     margin-top: 13px;
   }
   .project-copy p {
-    font-size: 12px;
+    font-size: 16px;
     min-height: 0;
   }
   .project-tags {
@@ -2362,11 +2239,11 @@ h2 {
     margin-bottom: 23px;
   }
   .project-tags > span {
-    font-size: 8px;
+    font-size: 12px;
     padding: 6px 8px;
   }
   .project-card-bottom {
-    font-size: 9px;
+    font-size: 13px;
     padding-block: 16px;
   }
   .project-card-bottom strong {
@@ -2470,7 +2347,7 @@ h2 {
     content: " ";
   }
   .section-description {
-    font-size: 12px;
+    font-size: 16px;
     max-width: 350px;
   }
   .timeline {
@@ -2481,20 +2358,20 @@ h2 {
     left: -30px;
   }
   .timeline-meta {
-    font-size: 8px;
+    font-size: 12px;
   }
   .job-type {
     display: block;
-    font-size: 6px;
+    font-size: 11px;
   }
   .timeline h3 {
     font-size: 20px;
   }
   .timeline h4 {
-    font-size: 12px;
+    font-size: 15px;
   }
   .timeline p {
-    font-size: 12px;
+    font-size: 16px;
   }
   .timeline-item {
     margin-bottom: 25px;
@@ -2511,7 +2388,7 @@ h2 {
     font-size: 30px;
   }
   .github-link {
-    font-size: 10px;
+    font-size: 14px;
     min-height: 39px;
     padding: 10px 14px;
   }
@@ -2523,10 +2400,10 @@ h2 {
     gap: 13px;
   }
   .github-panel-top > span:first-child {
-    font-size: 12px;
+    font-size: 15px;
   }
   .integration-label {
-    font-size: 6px;
+    font-size: 11px;
     padding: 5px 6px;
   }
   .github-panel-inline .contribution-placeholder {
@@ -2551,14 +2428,14 @@ h2 {
     opacity: 0.5;
   }
   .contribution-message h3 {
-    font-size: 14px;
+    font-size: 18px;
   }
   .contribution-message p {
-    font-size: 10px;
+    font-size: 14px;
     max-width: 255px;
   }
   .github-panel-bottom {
-    font-size: 7px;
+    font-size: 11px;
     line-height: 1.8;
   }
   .empty-legend {
@@ -2575,7 +2452,7 @@ h2 {
     max-width: 380px;
   }
   .contact-main p {
-    font-size: 12px;
+    font-size: 16px;
     margin-top: 21px;
   }
   .contact-arrow {
@@ -2595,7 +2472,7 @@ h2 {
     gap: 27px;
   }
   .contact-socials > a {
-    font-size: 11px;
+    font-size: 14px;
   }
   .contact-section {
     padding-bottom: 40px;
@@ -2612,13 +2489,13 @@ h2 {
     flex-basis: 50%;
   }
   .footer > span {
-    font-size: 7px;
+    font-size: 11px;
     order: 3;
     flex-basis: 100%;
     margin-top: 13px;
   }
   .back-top {
-    font-size: 8px;
+    font-size: 12px;
     gap: 9px;
   }
   .dialog-inner {
@@ -2628,10 +2505,10 @@ h2 {
     font-size: 29px;
   }
   .dialog-inner > p {
-    font-size: 12px;
+    font-size: 16px;
   }
   .result-list li {
-    font-size: 11px;
+    font-size: 15px;
   }
   .dialog-top {
     margin-bottom: 20px;
@@ -2642,25 +2519,22 @@ h2 {
     gap: 14px;
   }
   .button {
-    font-size: 10px;
+    font-size: 14px;
     padding-inline: 13px;
   }
   .resume-link {
-    font-size: 10px;
+    font-size: 14px;
   }
   .hero-meta {
     gap: 8px;
-    font-size: 8px;
+    font-size: 11px;
   }
   .hero-socials {
     gap: 10px;
     padding-left: 11px;
   }
-  .hero-eyebrow {
-    font-size: 7px;
-  }
   .email-group > a {
-    font-size: 15px;
+    font-size: 17px;
   }
   .job-type {
     display: none;
@@ -2699,5 +2573,8 @@ h2 {
   }
   .orbit-tag {
     translate: none;
+  }
+  .typewriter-cursor {
+    display: none;
   }
 }

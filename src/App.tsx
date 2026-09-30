@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  ArrowDown,
   ArrowDownRight,
   ArrowRight,
   ArrowUp,
@@ -15,7 +14,6 @@ import {
   Download,
   GitBranch,
   Github,
-  GraduationCap,
   Layers3,
   Linkedin,
   MapPin,
@@ -36,7 +34,7 @@ import {
   type ContributionCalendar,
 } from "./github";
 
-const sectionIds = ["sobre", "projetos", "experiencia", "contato"];
+const sectionIds = ["projetos", "experiencia", "sobre", "contato"];
 const toolbox = [
   {
     label: "Backend",
@@ -68,15 +66,87 @@ function readPreference(key: string, fallback: string) {
   }
 }
 
-function HeroVisual({ t }: { t: Copy }) {
+function TypewriterTitle({ titles }: { titles: string[][] }) {
+  const [activeTitleIndex, setActiveTitleIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [lead, accent] = titles[activeTitleIndex];
+  const text = `${lead} ${accent}`;
+
+  useEffect(() => {
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setActiveTitleIndex(0);
+      setDisplayed(`${titles[0][0]} ${titles[0][1]}`);
+      return;
+    }
+
+    let timeout: number;
+    let titleIndex = 0;
+    let characterIndex = 0;
+    let deleting = false;
+
+    setActiveTitleIndex(0);
+    setDisplayed("");
+
+    const type = () => {
+      const currentText = `${titles[titleIndex][0]} ${titles[titleIndex][1]}`;
+
+      if (!deleting) {
+        characterIndex += 1;
+        setDisplayed(currentText.slice(0, characterIndex));
+
+        if (characterIndex === currentText.length) {
+          timeout = window.setTimeout(() => {
+            deleting = true;
+            type();
+          }, 7000);
+          return;
+        }
+
+        timeout = window.setTimeout(type, 140);
+        return;
+      }
+
+      characterIndex -= 1;
+      setDisplayed(currentText.slice(0, characterIndex));
+
+      if (characterIndex === 0) {
+        titleIndex = (titleIndex + 1) % titles.length;
+        setActiveTitleIndex(titleIndex);
+        deleting = false;
+        timeout = window.setTimeout(type, 300);
+        return;
+      }
+
+      timeout = window.setTimeout(type, 60);
+    };
+
+    timeout = window.setTimeout(type, 140);
+    return () => window.clearTimeout(timeout);
+  }, [titles]);
+
+  const typedLead = displayed.slice(0, Math.min(displayed.length, lead.length));
+  const typedAccent = displayed.slice(lead.length + 1);
+
+  return (
+    <>
+      <span className="sr-only">{text}</span>
+      <span className="typewriter-text" aria-hidden="true">
+        {typedLead}
+        {displayed.length > lead.length && (
+          <>
+            <br />
+            <span className="typewriter-accent">{typedAccent}</span>
+          </>
+        )}
+        <span className="typewriter-cursor" />
+      </span>
+    </>
+  );
+}
+
+function HeroVisual() {
   return (
     <div className="hero-visual" aria-hidden="true">
-      <div className="visual-top">
-        <span>
-          <span className="status-dot" /> {t.visualTop}
-        </span>
-        <Plus size={16} />
-      </div>
       <div className="orbital-scene">
         <svg className="orbits" viewBox="0 0 460 400" fill="none">
           <defs>
@@ -156,16 +226,6 @@ function HeroVisual({ t }: { t: Copy }) {
         </div>
         <span className="coordinate coord-one">23.5°</span>
         <span className="coordinate coord-two">{"{ ideas: ∞ }"}</span>
-      </div>
-      <div className="visual-bottom">
-        <span>{t.visualBottom}</span>
-        <div className="signal">
-          <i />
-          <i />
-          <i />
-          <i />
-          <i />
-        </div>
       </div>
     </div>
   );
@@ -569,13 +629,13 @@ export default function App() {
         : "Heitor Barbosa — Software Engineer";
     document
       .querySelector('meta[name="description"]')
-      ?.setAttribute("content", t.intro);
+      ?.setAttribute("content", t.metaDescription);
     try {
       localStorage.setItem("heitor-language", lang);
     } catch {
       /* Storage can be disabled. */
     }
-  }, [lang, t.intro]);
+  }, [lang, t.metaDescription]);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     document
@@ -709,22 +769,13 @@ export default function App() {
           aria-labelledby="hero-heading"
         >
           <div className="hero-copy">
-            <span className="eyebrow hero-eyebrow">
-              <span className="status-dot" />
-              {t.eyebrow}
-            </span>
             <p className="hello">
               {t.hello}
               <span className="hello-line" />
             </p>
             <h1 id="hero-heading">
-              {t.title[0]}
-              <br />
-              {t.title[1]}
-              <br />
-              <span>{t.title[2]}</span>
+              <TypewriterTitle titles={t.heroTitles} />
             </h1>
-            <p className="hero-description">{t.intro}</p>
             <div className="hero-actions">
               <a href="#projetos" className="button button-primary">
                 {t.projectsCta}
@@ -767,75 +818,10 @@ export default function App() {
               </div>
             </div>
           </div>
-          <HeroVisual t={t} />
-          <div className="hero-bottom">
-            <span>PYTHON / TYPESCRIPT / REACT / AI</span>
-            <a href="#sobre">
-              {t.scroll}
-              <ArrowDown size={14} />
-            </a>
-          </div>
+          <HeroVisual />
         </section>
         <GitHubActivity t={t} lang={lang} />
         <div className="container">
-          <section
-            className="section about-section"
-            id="sobre"
-            aria-labelledby="about-heading"
-          >
-            <div className="about-main">
-              <span className="eyebrow">{t.aboutLabel}</span>
-              <h2 id="about-heading">
-                {t.aboutTitle}
-                <br />
-                <span className="muted-heading">{t.aboutAccent}</span>
-              </h2>
-              <p className="about-lead">{t.aboutText}</p>
-              <p className="body-copy">{t.aboutBody}</p>
-              <div className="education">
-                <GraduationCap size={22} />
-                <div>
-                  <strong>{t.education}</strong>
-                  <span>
-                    {t.university}{" "}
-                    <span className="education-date">· {t.educationDate}</span>
-                  </span>
-                </div>
-                <ArrowUpRight size={17} />
-              </div>
-              <span className="language-note">{t.languages}</span>
-            </div>
-            <div className="toolbox">
-              <div className="toolbox-title">
-                <Terminal size={18} />
-                <span className="eyebrow">{t.stackLabel}</span>
-                <span className="toolbox-dots">
-                  <i />
-                  <i />
-                  <i />
-                </span>
-              </div>
-              {toolbox.map((group, i) => (
-                <div className="toolbox-group" key={group.label}>
-                  <span className="toolbox-index">0{i + 1}</span>
-                  <div>
-                    <h3>{group.label}</h3>
-                    <div className="tags">
-                      {group.items.map((item) => (
-                        <span key={item}>{item}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-              <div className="toolbox-bottom">
-                <Braces size={15} />
-                <span>
-                  always_learning: <strong>true</strong>
-                </span>
-              </div>
-            </div>
-          </section>
           <section
             className="section projects-section"
             id="projetos"
@@ -940,6 +926,51 @@ export default function App() {
                   )}
                 </article>
               ))}
+            </div>
+          </section>
+          <section
+            className="section about-section"
+            id="sobre"
+            aria-labelledby="about-heading"
+          >
+            <div className="about-main">
+              <span className="eyebrow">{t.aboutLabel}</span>
+              <h2 id="about-heading">
+                {t.aboutTitle}
+                <br />
+                <span className="muted-heading">{t.aboutAccent}</span>
+              </h2>
+              <p className="about-lead">{t.aboutText}</p>
+            </div>
+            <div className="toolbox">
+              <div className="toolbox-title">
+                <Terminal size={18} />
+                <span className="eyebrow">{t.stackLabel}</span>
+                <span className="toolbox-dots">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+              </div>
+              {toolbox.map((group, i) => (
+                <div className="toolbox-group" key={group.label}>
+                  <span className="toolbox-index">0{i + 1}</span>
+                  <div>
+                    <h3>{group.label}</h3>
+                    <div className="tags">
+                      {group.items.map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <div className="toolbox-bottom">
+                <Braces size={15} />
+                <span>
+                  always_learning: <strong>true</strong>
+                </span>
+              </div>
             </div>
           </section>
           <section
