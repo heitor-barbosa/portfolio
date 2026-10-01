@@ -69,11 +69,24 @@ function readPreference(key: string, fallback: string) {
 function TypewriterTitle({ titles }: { titles: string[][] }) {
   const [activeTitleIndex, setActiveTitleIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
+  const [compact, setCompact] = useState(
+    () => window.matchMedia?.("(max-width: 800px)").matches ?? false,
+  );
   const [lead, accent] = titles[activeTitleIndex];
   const text = `${lead} ${accent}`;
 
   useEffect(() => {
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    const media = window.matchMedia?.("(max-width: 800px)");
+    const update = () => setCompact(media?.matches ?? false);
+    media?.addEventListener("change", update);
+    return () => media?.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (
+      compact ||
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    ) {
       setActiveTitleIndex(0);
       setDisplayed(`${titles[0][0]} ${titles[0][1]}`);
       return;
@@ -122,7 +135,7 @@ function TypewriterTitle({ titles }: { titles: string[][] }) {
 
     timeout = window.setTimeout(type, 140);
     return () => window.clearTimeout(timeout);
-  }, [titles]);
+  }, [titles, compact]);
 
   const typedLead = displayed.slice(0, Math.min(displayed.length, lead.length));
   const typedAccent = displayed.slice(lead.length + 1);
@@ -463,6 +476,14 @@ function GitHubActivity({ t, lang }: { t: Copy; lang: Language }) {
     "loading",
   );
   const [retry, setRetry] = useState(0);
+  const graphRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (calendar && window.matchMedia?.("(max-width: 650px)").matches) {
+      const graph = graphRef.current;
+      if (graph) graph.scrollLeft = graph.scrollWidth;
+    }
+  }, [calendar]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -544,7 +565,11 @@ function GitHubActivity({ t, lang }: { t: Copy; lang: Language }) {
             </span>
           </div>
           <div
+            ref={graphRef}
             className="contribution-placeholder"
+            role="region"
+            aria-label={t.githubGraphLabel}
+            tabIndex={0}
             aria-busy={status === "loading"}
           >
             <div
@@ -593,6 +618,9 @@ function GitHubActivity({ t, lang }: { t: Copy; lang: Language }) {
                   : `${calendar.totalContributions} ${t.githubTotalSuffix}`
                 : t.githubNote}
             </span>
+            {calendar && (
+              <span className="graph-scroll-hint">{t.githubScrollHint}</span>
+            )}
             <span className="empty-legend" aria-hidden="true">
               <i />
               <i />
