@@ -146,6 +146,7 @@ export const content = {
     githubContributions: "contribuições",
     githubTotalSuffix: "contribuições nos últimos 12 meses.",
     githubGraphLabel: "Calendário de contribuições do GitHub",
+    githubScrollHint: "Deslize para ver o histórico →",
     githubLoadingTitle: "Buscando contribuições...",
     githubErrorTitle: "GitHub indisponível agora.",
     githubErrorText:
@@ -316,6 +317,7 @@ export const content = {
     githubContributions: "contributions",
     githubTotalSuffix: "contributions in the last 12 months.",
     githubGraphLabel: "GitHub contribution calendar",
+    githubScrollHint: "Swipe to explore history →",
     githubLoadingTitle: "Loading contributions...",
     githubErrorTitle: "GitHub is unavailable right now.",
     githubErrorText:
